@@ -1,0 +1,24 @@
+{
+  "model_name": "U-Net",
+  "task": "segmentation",
+  "trained_at": "2026-11-08T20:45:01",
+  "img_size": 256,
+  "base_filters": 16,
+  "depth": 4,
+  "batch_size": 16,
+  "lr": 0.001,
+  "seed": 42,
+  "epochs_run": 35,
+  "best_val_loss": 0.27585,
+  "input_scaling": "RGB / 255",
+  "loss": "binary cross-entropy + (1 - Dice)",
+  "augmentation": "flips, rot90, brightness/contrast (train only)",
+  "split_sizes": {
+    "train": 630,
+    "val": 135,
+    "test": 135
+  },
+  "n_pairs": 900,
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2"
+}

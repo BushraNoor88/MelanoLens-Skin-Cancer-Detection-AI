@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MelanoLens AI - Edge Booster Workspace</title>
+  <meta name="theme-color" content="#101828">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="workspace.html">
+  <main id="main">
+    <header class="page-head"><div class="container">
+      <span class="eyebrow">Step 2 of 4</span>
+      <h1>Edge Booster Workspace</h1>
+      <p>Choose preprocessing, enhancement and detector settings, then process. Conventional and enhanced results for every detector are computed with the same parameters so they can be compared fairly.</p>
+    </div></header>
+    <div class="page-body"><div class="container">
+    <div class="ws-bar" id="ws-bar" aria-label="Workspace status">
+      <div class="btn-row"><span class="pill" id="ws-state" role="status"><i></i><span id="ws-state-text">Waiting for an image</span></span>
+        <span class="pill"><i></i>Conventional vs Edge Booster</span></div>
+      <div class="btn-row"><a class="btn ghost small" href="upload.html">← New image</a></div>
+    </div>
+    <div id="no-result" class="card empty-state" hidden><div class="ring" aria-hidden="true">?</div><h3>No image loaded yet</h3><p class="muted">Start by uploading a dermoscopic image.</p><a class="btn primary" href="upload.html">Upload an image</a></div>
+    <div class="layout-2" id="workspace" hidden>
+      <form id="controls" novalidate aria-label="Processing controls">
+        
+<fieldset><legend>1. Preprocessing</legend>
+<div class="field"><label for="p-filter">Noise filter<span class="tip" tabindex="0" data-tip="Gaussian: smooths Gaussian noise. Median: removes salt-and-pepper noise. Bilateral: smooths flat areas but keeps edges.">i</span></label><select id="p-filter" data-param="filter" data-type="text"><option value="none">None</option><option value="gaussian">Gaussian blur</option><option value="median">Median</option><option value="bilateral">Bilateral</option></select><div class="err" id="e-filter"></div></div>
+<div class="field" ><label for="p-kernel_size">Kernel size (odd)<span class="tip" tabindex="0" data-tip="Bigger kernels smooth more but blur weak boundaries. Must be odd. For Bilateral this is the neighbourhood diameter (minimum 3).">i</span><output for="p-kernel_size"></output></label><input type="range" id="p-kernel_size" data-param="kernel_size" data-type="number" min="1" max="31" step="2"><div class="err" id="e-kernel_size"></div></div>
+<div id="bilateral-group">
+<div class="field" ><label for="p-bilateral_sigma_color">Bilateral sigma colour<span class="tip" tabindex="0" data-tip="How different two brightness values can be and still be averaged together.">i</span><output for="p-bilateral_sigma_color"></output></label><input type="range" id="p-bilateral_sigma_color" data-param="bilateral_sigma_color" data-type="number" min="1" max="250" step="1"><div class="err" id="e-bilateral_sigma_color"></div></div>
+<div class="field" ><label for="p-bilateral_sigma_space">Bilateral sigma space<span class="tip" tabindex="0" data-tip="How far apart two pixels can be and still influence each other.">i</span><output for="p-bilateral_sigma_space"></output></label><input type="range" id="p-bilateral_sigma_space" data-param="bilateral_sigma_space" data-type="number" min="1" max="250" step="1"><div class="err" id="e-bilateral_sigma_space"></div></div>
+</div>
+<div class="field check"><label for="p-clahe"><input type="checkbox" id="p-clahe" data-param="clahe" data-type="bool"> Contrast enhancement (CLAHE)<span class="tip" tabindex="0" data-tip="Contrast Limited Adaptive Histogram Equalisation boosts LOCAL contrast so faint borders become visible.">i</span></label></div>
+<div class="field" ><label for="p-clahe_clip">CLAHE clip limit<span class="tip" tabindex="0" data-tip="Higher values give stronger contrast but also amplify noise.">i</span><output for="p-clahe_clip"></output></label><input type="range" id="p-clahe_clip" data-param="clahe_clip" data-type="number" min="0.5" max="10" step="0.5"><div class="err" id="e-clahe_clip"></div></div>
+<div class="field" ><label for="p-clahe_tile">CLAHE tile grid<span class="tip" tabindex="0" data-tip="The image is split into tile x tile blocks, each equalised separately.">i</span><output for="p-clahe_tile"></output></label><input type="range" id="p-clahe_tile" data-param="clahe_tile" data-type="number" min="2" max="16" step="1"><div class="err" id="e-clahe_tile"></div></div>
+<div class="field check"><label for="p-remove_hair"><input type="checkbox" id="p-remove_hair" data-param="remove_hair" data-type="bool"> Reduce hair artifacts<span class="tip" tabindex="0" data-tip="Finds thin dark lines with a black-hat filter and fills them in (inpainting).">i</span></label></div>
+<div class="field"><label for="p-max_side">Resize (longest side)<span class="tip" tabindex="0" data-tip="Large images are shrunk, keeping the aspect ratio. Smaller sizes run faster.">i</span></label><select id="p-max_side" data-param="max_side" data-type="number"><option value="512">512 px</option><option value="768">768 px</option><option value="1024">1024 px</option><option value="1536">1536 px</option><option value="2048">2048 px</option></select><div class="err" id="e-max_side"></div></div>
+</fieldset>
+
+<fieldset><legend>2. Edge Booster</legend>
+<div class="field"><label for="p-booster_method">Enhancement method<span class="tip" tabindex="0" data-tip="Sobel: I + alpha*G. Laplacian: I - strength*Laplacian(I). Morphological: dilation - erosion gradient added back. Multi-scale: weighted Sobel at several blur scales.">i</span></label><select id="p-booster_method" data-param="booster_method" data-type="text"><option value="sobel">Sobel gradient</option><option value="laplacian">Laplacian sharpening</option><option value="morphological">Morphological gradient</option><option value="multiscale">Multi-scale (experimental)</option></select><div class="err" id="e-booster_method"></div></div>
+<div class="field" ><label for="p-booster_alpha">Enhancement strength α<span class="tip" tabindex="0" data-tip="Strength of the gradient added back to the image. 0 = no enhancement. Large values amplify noise too.">i</span><output for="p-booster_alpha"></output></label><input type="range" id="p-booster_alpha" data-param="booster_alpha" data-type="number" min="0" max="5" step="0.1"><div class="err" id="e-booster_alpha"></div></div>
+<div class="alert warn" id="alpha-warn" hidden>High strength can amplify noise and create false edges.</div>
+<div class="field" ><label for="p-booster_kernel">Booster kernel size (odd)<span class="tip" tabindex="0" data-tip="Sobel/Laplacian aperture (1-7) or morphological structuring element (3-21). Ignored by Multi-scale.">i</span><output for="p-booster_kernel"></output></label><input type="range" id="p-booster_kernel" data-param="booster_kernel" data-type="number" min="1" max="7" step="2"><div class="err" id="e-booster_kernel"></div></div>
+</fieldset>
+
+<fieldset><legend>3. Edge detection</legend>
+<div class="field"><label>Processing mode<span class="tip" tabindex="0" data-tip="Conventional: preprocess then detect. Enhanced: preprocess, Edge Booster, then detect. The Evaluation page always compares both.">i</span></label>
+<div class="radio-row" role="radiogroup" aria-label="Processing mode">
+<label><input type="radio" name="mode" data-param="mode" data-type="radio" value="conventional"> Conventional</label>
+<label><input type="radio" name="mode" data-param="mode" data-type="radio" value="enhanced"> Enhanced</label></div></div>
+<div class="field"><label for="p-detector">Detector for boundary analysis<span class="tip" tabindex="0" data-tip="This detector's edge map drives the contour, mask and measurements. All detectors are still computed for comparison.">i</span></label><select id="p-detector" data-param="detector" data-type="text"><option value="canny">Canny</option><option value="sobel">Sobel</option><option value="prewitt">Prewitt</option><option value="laplacian">Laplacian</option><option value="log">Laplacian of Gaussian</option></select><div class="err" id="e-detector"></div></div>
+<div id="grp-canny">
+<div class="field check"><label for="p-canny_auto"><input type="checkbox" id="p-canny_auto" data-param="canny_auto" data-type="bool"> Auto thresholds (per image and mode)<span class="tip" tabindex="0" data-tip="Picks Canny thresholds from the image's own gradient strength, separately for the conventional and the enhanced image, so both get a comparable number of edges. Turn off to type thresholds yourself.">i</span></label></div>
+<div class="field"><label for="p-canny_percentile">Auto: gradient percentile<span class="tip" tabindex="0" data-tip="High threshold = this percentile of the gradient magnitude; low = 0.4 x high. Higher = fewer, stronger edges.">i</span><output for="p-canny_percentile"></output></label><input type="range" id="p-canny_percentile" data-param="canny_percentile" data-type="number" min="50" max="99.5" step="0.5"><div class="err" id="e-canny_percentile"></div></div>
+<div class="field" ><label for="p-canny_low">Canny lower threshold<span class="tip" tabindex="0" data-tip="Edges weaker than this are discarded.">i</span><output for="p-canny_low"></output></label><input type="range" id="p-canny_low" data-param="canny_low" data-type="number" min="0" max="255" step="1"><div class="err" id="e-canny_low"></div></div>
+<div class="field" ><label for="p-canny_high">Canny upper threshold<span class="tip" tabindex="0" data-tip="Edges stronger than this are always kept. Must be above the lower threshold.">i</span><output for="p-canny_high"></output></label><input type="range" id="p-canny_high" data-param="canny_high" data-type="number" min="0" max="255" step="1"><div class="err" id="e-canny_high"></div></div>
+<div class="field" ><label for="p-canny_blur">Canny smoothing kernel (odd)<span class="tip" tabindex="0" data-tip="Gaussian blur applied inside Canny before gradients are computed.">i</span><output for="p-canny_blur"></output></label><input type="range" id="p-canny_blur" data-param="canny_blur" data-type="number" min="1" max="31" step="2"><div class="err" id="e-canny_blur"></div></div>
+</div>
+<div id="grp-sobel"><div class="field" ><label for="p-sobel_threshold">Sobel threshold<span class="tip" tabindex="0" data-tip="Applied to the gradient magnitude scaled to 0-255 by its maximum.">i</span><output for="p-sobel_threshold"></output></label><input type="range" id="p-sobel_threshold" data-param="sobel_threshold" data-type="number" min="0" max="255" step="1"><div class="err" id="e-sobel_threshold"></div></div></div>
+<div id="grp-prewitt"><div class="field" ><label for="p-prewitt_threshold">Prewitt threshold<span class="tip" tabindex="0" data-tip="Applied to the gradient magnitude scaled to 0-255 by its maximum.">i</span><output for="p-prewitt_threshold"></output></label><input type="range" id="p-prewitt_threshold" data-param="prewitt_threshold" data-type="number" min="0" max="255" step="1"><div class="err" id="e-prewitt_threshold"></div></div></div>
+<div id="grp-laplacian"><div class="field" ><label for="p-laplacian_threshold">Laplacian threshold<span class="tip" tabindex="0" data-tip="Applied to the absolute Laplacian response scaled to 0-255.">i</span><output for="p-laplacian_threshold"></output></label><input type="range" id="p-laplacian_threshold" data-param="laplacian_threshold" data-type="number" min="0" max="255" step="1"><div class="err" id="e-laplacian_threshold"></div></div></div>
+<div id="grp-log">
+<div class="field" ><label for="p-log_sigma">LoG sigma<span class="tip" tabindex="0" data-tip="Gaussian smoothing strength before the Laplacian.">i</span><output for="p-log_sigma"></output></label><input type="range" id="p-log_sigma" data-param="log_sigma" data-type="number" min="0.5" max="10" step="0.5"><div class="err" id="e-log_sigma"></div></div>
+<div class="field" ><label for="p-log_threshold">LoG threshold<span class="tip" tabindex="0" data-tip="Applied to the absolute response scaled to 0-255.">i</span><output for="p-log_threshold"></output></label><input type="range" id="p-log_threshold" data-param="log_threshold" data-type="number" min="0" max="255" step="1"><div class="err" id="e-log_threshold"></div></div>
+</div>
+</fieldset>
+
+<fieldset><legend>4. Boundary extraction</legend>
+<div class="field" ><label for="p-close_kernel">Gap-closing kernel (odd)<span class="tip" tabindex="0" data-tip="Morphological closing joins small gaps in the edge map. 1 = off. Too large merges separate structures.">i</span><output for="p-close_kernel"></output></label><input type="range" id="p-close_kernel" data-param="close_kernel" data-type="number" min="1" max="31" step="2"><div class="err" id="e-close_kernel"></div></div>
+<div class="field" ><label for="p-close_iterations">Closing iterations<span class="tip" tabindex="0" data-tip="How many times closing is repeated.">i</span><output for="p-close_iterations"></output></label><input type="range" id="p-close_iterations" data-param="close_iterations" data-type="number" min="1" max="5" step="1"><div class="err" id="e-close_iterations"></div></div>
+<div class="field" ><label for="p-open_kernel">Artifact-removal kernel (0 = off)<span class="tip" tabindex="0" data-tip="Optional morphological opening removes small specks. Use 0 or an odd value from 3 to 15.">i</span><output for="p-open_kernel"></output></label><input type="range" id="p-open_kernel" data-param="open_kernel" data-type="number" min="0" max="15" step="2"><div class="err" id="e-open_kernel"></div></div>
+<div class="field" ><label for="p-min_area_pct">Minimum contour area (% of image)<span class="tip" tabindex="0" data-tip="Smaller contours are ignored as noise.">i</span><output for="p-min_area_pct"></output></label><input type="range" id="p-min_area_pct" data-param="min_area_pct" data-type="number" min="0" max="20" step="0.1"><div class="err" id="e-min_area_pct"></div></div>
+<div class="field" ><label for="p-max_area_pct">Maximum contour area (% of image)<span class="tip" tabindex="0" data-tip="Larger contours (e.g. the whole frame) are ignored.">i</span><output for="p-max_area_pct"></output></label><input type="range" id="p-max_area_pct" data-param="max_area_pct" data-type="number" min="20" max="100" step="1"><div class="err" id="e-max_area_pct"></div></div>
+<div class="field"><label for="p-ignore_border_px">Ignore image border (px)<span class="tip" tabindex="0" data-tip="Edge pixels this close to the image border are discarded before contour extraction. Removes frames, vignettes and scanner borders.">i</span><output for="p-ignore_border_px"></output></label><input type="range" id="p-ignore_border_px" data-param="ignore_border_px" data-type="number" min="0" max="30" step="1"><div class="err" id="e-ignore_border_px"></div></div>
+<div class="field"><label for="p-selection">Candidate selection<span class="tip" tabindex="0" data-tip="The largest contour is not always the lesion. Inspect other candidates on the Boundary Analysis page.">i</span></label><select id="p-selection" data-param="selection" data-type="text"><option value="largest">Largest valid contour</option><option value="most_circular">Most circular</option><option value="closest_to_center">Closest to centre</option></select><div class="err" id="e-selection"></div></div>
+<div class="field" ><label for="p-boundary_tolerance_px">Boundary F1 tolerance (px)<span class="tip" tabindex="0" data-tip="A boundary pixel counts as correct if it lies within this distance of the other boundary.">i</span><output for="p-boundary_tolerance_px"></output></label><input type="range" id="p-boundary_tolerance_px" data-param="boundary_tolerance_px" data-type="number" min="0" max="10" step="1"><div class="err" id="e-boundary_tolerance_px"></div></div>
+</fieldset>
+
+        <div class="btn-row sticky-actions">
+          <button class="btn primary" type="submit" id="process-btn">Process</button>
+          <button class="btn ghost" type="button" id="reset-btn">Reset</button>
+          <button class="btn ghost" type="button" id="preset-btn" title="Starting point for soft-edged dermoscopy lesions. Tuned on a single ISIC image only.">Dermoscopy preset</button>
+        </div>
+        <div class="status" id="status" role="status"></div>
+        <div id="form-errors" aria-live="assertive"></div>
+      </form>
+      <section aria-label="Results">
+        <div class="card results-card" id="results-card">
+          <div class="loader-badge" aria-hidden="true"><span class="spinner"></span>Running the pipeline…</div>
+          <div class="btn-row" style="justify-content:space-between;margin-bottom:.8rem">
+            <h2 style="margin:0">Results</h2>
+            <div class="btn-row">
+              <a class="btn ghost small" href="analysis.html">Boundary Analysis →</a>
+              <a class="btn ghost small" href="analysis.html#cnn">CNN Analysis →</a>
+              <a class="btn ghost small" href="evaluation.html">Evaluation →</a>
+              <button class="btn danger small" id="delete-btn" type="button">Delete stored result</button>
+            </div>
+          </div>
+          <div id="warnings"></div>
+          <p class="muted" id="canny-used"></p>
+          <div id="results-empty" class="empty"><div class="ring" aria-hidden="true">◎</div>Press <b>Process</b> to generate results.</div>
+          <div id="results" hidden>
+            <h3 style="margin-top:.4rem">Pipeline stages</h3><div class="gallery" id="gallery-main"></div>
+            <h3 style="margin-top:1.4rem">Edge maps: conventional vs enhanced</h3>
+            <div class="pair-grid" id="gallery-pairs"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div></div></main>
+  <div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="card"><div class="btn-row" style="justify-content:space-between"><h3 id="modal-title" style="margin:0"></h3>
+      <div class="btn-row"><a class="btn primary small" id="modal-download" href="#">Download PNG</a><button class="btn ghost small" id="modal-close" type="button">Close (Esc)</button></div></div>
+      <div id="modal-toolbar"></div><div id="modal-viewer"></div><p class="muted">Scroll to zoom, drag to pan.</p></div>
+  </div>
+  <script src="js/app.js"></script><script src="js/ui.js"></script><script src="js/labels.js"></script><script src="js/viewer.js"></script><script src="js/processing.js"></script>
+</body>
+</html>

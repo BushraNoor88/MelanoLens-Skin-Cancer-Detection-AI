@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101828">
+  <title>MelanoLens AI - Edge-enhanced lesion boundary analysis</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="index.html">
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-h">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">Computer vision research platform</span>
+          <h1 id="hero-h">See the Edges.<br><span class="grad">Understand the Boundaries.</span></h1>
+          <p class="lead">MelanoLens AI explores whether strengthening meaningful gradients <em>before</em> edge detection gives cleaner skin lesion boundaries. Run conventional and Edge Booster pipelines on the same image and compare the results side by side.</p>
+          <div class="hero-actions">
+            <a class="btn primary large" href="upload.html">Analyze Lesion →</a>
+            <a class="btn secondary large" href="#platform">Explore Platform</a>
+          </div>
+          <div class="hero-facts" aria-label="Platform capabilities">
+            <div><b>5</b><span>edge detectors</span></div>
+            <div><b>4</b><span>Edge Booster methods</span></div>
+            <div><b>7</b><span>pipeline stages</span></div>
+            <div><b>2</b><span>modes compared per run</span></div>
+          </div>
+        </div>
+        <div class="reveal right" style="--d:150ms">
+          <div class="lens" data-lens style="--split:50%">
+            <span class="chip c1"><i></i>Edge Booster</span><span class="chip c2"><i></i>Boundary extraction</span>
+            <div class="lens-top"><i></i><i></i><i></i><span>conventional ⟷ enhanced</span></div>
+            <div class="lens-stage">
+              <img src="assets/demo/original.png" alt="Synthetic demo lesion before enhancement" width="480" height="480">
+              <img class="after" src="assets/demo/enhanced.png" alt="The same synthetic lesion after Edge Booster enhancement" width="480" height="480">
+              <div class="lens-scan" aria-hidden="true"></div>
+              <input class="lens-range" type="range" min="0" max="100" value="50" aria-label="Compare original and Edge Booster output">
+              <div class="lens-handle" aria-hidden="true"></div>
+              <span class="lens-tag l">ORIGINAL</span><span class="lens-tag r">EDGE BOOSTER</span>
+            </div>
+            <p class="lens-note">Illustration: a synthetic lesion-like shape produced by the project's test generator and processed by the real Edge Booster. Not patient data.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="platform" aria-labelledby="feat-h">
+      <div class="container">
+        <div class="section-head reveal"><span class="eyebrow light">Platform</span><h2 id="feat-h">A complete boundary analysis workbench</h2>
+          <p>From validated upload to measured contours and reference-mask metrics, every step runs locally and every number comes from the saved results.</p></div>
+        <div class="grid cols-3">
+          <article class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4m0 0L7 9m5-5 5 5M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg></div><h3>Safe image intake</h3><p>JPG and PNG uploads are validated in the browser and again on the server, with an optional reference mask for evaluation.</p></article>
+          <article class="feature reveal" style="--d:80ms"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20 15 9m2-5 .8 1.7L19.5 6.5l-1.7.8L17 9l-.8-1.7L14.5 6.5l1.7-.8zM6 5l.5 1L7.5 6.5 6.5 7 6 8l-.5-1-1-.5 1-.5z"/></svg></div><h3>Image processing</h3><p>Gaussian, median and bilateral filters, CLAHE contrast, hair-artifact reduction and resizing, all adjustable per run.</p></article>
+          <article class="feature reveal" style="--d:160ms"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17c3 0 3-10 6-10s3 10 6 10 3-6 6-6"/></svg></div><h3>Edge detection</h3><p>Canny, Sobel, Prewitt, Laplacian and Laplacian of Gaussian, each computed conventionally and with the Edge Booster.</p></article>
+          <article class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9c1-4 6-6 10-4 4 1 5 6 3 9-2 4-8 6-11 3-3-1-3-6-2-8z"/><circle cx="12" cy="12" r="2.2"/></svg></div><h3>Boundary extraction</h3><p>Gap closing, contour tracing, area filtering and candidate selection with area, perimeter and circularity measurements.</p></article>
+          <article class="feature reveal" style="--d:80ms"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10m6 10V4m6 16v-7m4 7H3"/></svg></div><h3>Evaluation</h3><p>Dice, IoU, precision, recall, F1 and boundary F1 against your reference mask, with CSV and JSON export.</p></article>
+          <article class="feature reveal" style="--d:160ms"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Private by design</h3><p>Everything runs on your computer. Nothing is sent to third-party services, and stored results can be deleted at any time.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="pipeline" aria-labelledby="pipe-h">
+      <div class="container">
+        <div class="section-head reveal"><span class="eyebrow">Workflow</span><h2 id="pipe-h">The computer vision pipeline</h2>
+          <p>Every detector runs twice on the same image and parameters: <b>conventional</b> (preprocess → detect) and <b>enhanced</b> (preprocess → Edge Booster → detect).</p></div>
+        <div class="pipeline" style="margin-top:1.4rem">
+          <div class="step reveal"><b>Upload</b>JPG / PNG validated safely</div>
+          <div class="step reveal" style="--d:60ms"><b>Preprocess</b>Gray, filter, CLAHE, hair removal</div>
+          <div class="step core reveal" style="--d:120ms"><b>Edge Booster</b>I + α·G before detection</div>
+          <div class="step reveal" style="--d:180ms"><b>Detect edges</b>Canny, Sobel, Prewitt, Laplacian, LoG</div>
+          <div class="step reveal" style="--d:240ms"><b>Boundary</b>Close gaps, find contours</div>
+          <div class="step reveal" style="--d:300ms"><b>Mask</b>Candidate lesion region</div>
+          <div class="step reveal" style="--d:360ms"><b>Evaluate</b>Dice, IoU, F1 vs reference mask</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="algo-h">
+      <div class="container">
+        <div class="section-head reveal"><span class="eyebrow light">Research</span><h2 id="algo-h">Algorithms under study</h2>
+          <p>Classical operators with transparent mathematics. Nothing is a black box.</p></div>
+        <h3 class="reveal">Edge detectors</h3>
+        <div class="grid cols-3" style="margin-bottom:2rem">
+          <article class="card algo reveal"><h3>Canny <span class="badge">detector</span></h3><p class="muted">Gaussian smoothing, gradient, non-maximum suppression and two-threshold hysteresis give thin, connected edges.</p></article>
+          <article class="card algo reveal" style="--d:70ms"><h3>Sobel <span class="badge">detector</span></h3><p class="muted">3×3 derivative kernels give Gx and Gy; magnitude <code>sqrt(Gx² + Gy²)</code> is thresholded.</p></article>
+          <article class="card algo reveal" style="--d:140ms"><h3>Prewitt <span class="badge">detector</span></h3><p class="muted">Like Sobel but with equal weights in the kernel rows, applied with explicit convolution.</p></article>
+          <article class="card algo reveal"><h3>Laplacian <span class="badge">detector</span></h3><p class="muted">Second derivative; edges are where intensity curvature is strong. Sensitive to noise.</p></article>
+          <article class="card algo reveal" style="--d:70ms"><h3>Laplacian of Gaussian <span class="badge alt">optional</span></h3><p class="muted">Gaussian smoothing first, then the Laplacian, which tames noise at the cost of fine detail.</p></article>
+        </div>
+        <h3 class="reveal">Edge Booster methods</h3>
+        <div class="grid cols-4">
+          <article class="card algo reveal"><h3>Sobel gradient</h3><div class="formula">I' = normalize(I + α·G)</div><p class="muted">Adds the normalised gradient back to the image. Large α amplifies noise.</p></article>
+          <article class="card algo reveal" style="--d:70ms"><h3>Laplacian sharpening</h3><div class="formula">I' = I − s·∇²I</div><p class="muted">Unsharp-style sharpening using the Laplacian with a negative centre.</p></article>
+          <article class="card algo reveal" style="--d:140ms"><h3>Morphological gradient</h3><div class="formula">dilate(I) − erode(I)</div><p class="muted">Edge thickness from dilation minus erosion; kernel size sets the scale.</p></article>
+          <article class="card algo reveal" style="--d:210ms"><h3>Multi-scale <span class="badge alt">experimental</span></h3><p class="muted">Sobel responses at several blur scales, each normalised, then combined with weights.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" aria-labelledby="hyb-h">
+      <div class="container">
+        <div class="section-head reveal"><span class="eyebrow light">Hybrid</span><h2 id="hyb-h">Classical vision meets CNNs</h2>
+          <p>Run all three paths on the same image and compare them with real metrics. A CNN is not assumed to be better.</p></div>
+        <div class="grid cols-3">
+          <article class="card hover reveal"><span class="badge">classical</span><h3 style="margin-top:.6rem">Edge Booster pipeline</h3><p class="muted">Preprocess → Edge Booster → Canny → contour extraction. Transparent maths, no training needed.</p></article>
+          <article class="card hover reveal" style="--d:80ms"><span class="badge alt">CNN</span><h3 style="margin-top:.6rem">U-Net segmentation</h3><p class="muted">A trained encoder-decoder predicts the lesion mask; its boundary is overlaid and compared with the classical contour.</p></article>
+          <article class="card hover reveal" style="--d:160ms"><span class="badge alt">CNN</span><h3 style="margin-top:.6rem">MobileNetV2 classification</h3><p class="muted">Predicts a diagnosis category from the dataset labels, with class probabilities. A model prediction, not a diagnosis.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" aria-labelledby="rq-h">
+      <div class="container" style="max-width:980px">
+        <div class="cta-band reveal">
+          <h2 id="rq-h">Does edge enhancement really help?</h2>
+          <p>Upload an image, optionally with a reference mask, and investigate it with real computed numbers. Enhancement can make edges look stronger without making the segmentation more accurate; the app reports both outcomes as they are.</p>
+          <a class="btn primary large" href="upload.html">Start an analysis →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="js/app.js"></script><script src="js/ui.js"></script>
+</body>
+</html>

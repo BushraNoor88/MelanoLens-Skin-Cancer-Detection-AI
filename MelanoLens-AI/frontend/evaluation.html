@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MelanoLens AI - Evaluation</title>
+  <meta name="theme-color" content="#101828">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="evaluation.html">
+  <main id="main">
+    <header class="page-head"><div class="container">
+      <span class="eyebrow">Step 4 of 4</span>
+      <h1>Evaluation</h1>
+      <p>Does edge enhancement improve boundary detection? Compare conventional and Edge Booster results against a reference mask. All values are computed from the saved masks of this result; nothing is estimated or invented.</p>
+    </div></header>
+    <div class="page-body"><div class="container">
+    <div id="empty" class="card empty-state" hidden></div>
+    <div id="content" hidden>
+      <div id="no-ref" class="card empty-state" hidden>
+        <h2>Ground-truth mask unavailable</h2>
+        <p>No reference segmentation mask is attached to this image, so Dice, IoU, precision, recall and F1 cannot be computed. No scores are shown.</p>
+        <a class="btn primary" href="upload.html">Upload an image with a reference mask</a>
+      </div>
+      <div id="has-ref" hidden>
+        <div class="stat-grid" id="summary" style="margin-bottom:1rem" aria-label="Best scores"></div>
+        <div class="card" style="margin-bottom:1rem"><h2>Dice by detector</h2>
+          <div class="bar-key"><span><i></i>Conventional</span><span><i class="enh"></i>Edge Booster</span></div>
+          <div class="bars" id="dice-bars"></div>
+          <p class="muted" style="margin:.8rem 0 0">Bars show the Dice values returned by the API; an empty bar means no value (n/a).</p></div>
+        <div class="card"><div class="btn-row" style="justify-content:space-between"><h2 style="margin:0">Conventional vs Edge Booster</h2>
+          <div class="btn-row"><a class="btn ghost small" id="export-csv" href="#">Export CSV</a><a class="btn ghost small" id="export-json" href="#">Export JSON</a></div></div>
+          <p class="muted">Difference = enhanced − conventional (positive means the enhanced value is higher). "n/a" means no candidate contour was found or the value is undefined.</p>
+          <div class="table-wrap"><table><thead><tr><th>Detector</th><th>Dice conv.</th><th>Dice enh.</th><th>Δ Dice</th><th>IoU conv.</th><th>IoU enh.</th><th>Δ IoU</th><th>Edge-map F1 conv.</th><th>Edge-map F1 enh.</th><th>Δ Edge F1</th></tr></thead><tbody id="cmp-body"></tbody></table></div>
+        </div>
+        <div class="grid cols-2" style="margin-top:1rem;align-items:start">
+          <div class="card"><h2>Dice chart</h2><img id="chart" class="figure-frame" alt="Bar chart of Dice score for conventional and Edge Booster results per detector" style="width:100%;border-radius:12px;border:1px solid var(--line)"></div>
+          <div class="card"><h2>Masks (selected detector and mode)</h2>
+            <div class="grid cols-3"><figure class="figure-frame"><img id="m-ref" alt="Reference mask"><figcaption>Reference</figcaption></figure>
+              <figure class="figure-frame"><img id="m-pred" alt="Predicted mask"><figcaption>Predicted</figcaption></figure>
+              <figure class="figure-frame"><img id="m-diff" alt="Difference"><figcaption>Difference</figcaption></figure></div>
+            <div class="legend" style="margin-top:.5rem"><span><i style="background:#00c800"></i>TP</span><span><i style="background:#dc0000"></i>FP</span><span><i style="background:#0078dc"></i>FN</span></div></div>
+        </div>
+        <div class="card" style="margin-top:1rem"><h2>All results</h2>
+          <div class="table-wrap"><table><thead><tr><th>Detector</th><th>Mode</th><th>Mask found</th><th>Dice</th><th>IoU</th><th>Precision</th><th>Recall</th><th>F1</th><th>Boundary F1</th><th>Edge-map F1</th></tr></thead><tbody id="rows-body"></tbody></table></div>
+        </div>
+        <div class="card" style="margin-top:1rem"><h2>How the numbers are computed</h2>
+          <ul>
+            <li><b>Mask metrics</b> (Dice, IoU, precision, recall, F1, Boundary F1) compare a filled candidate mask with the reference mask. The candidate mask comes from the contour-selection rule you chose.</li>
+            <li><b>Edge-map F1</b> compares raw edge pixels with the boundary of the reference mask using a pixel tolerance. It does not need a contour, but background edges lower it.</li>
+            <li>Results on one image are a single observation, not proof that enhancement helps or hurts in general.</li>
+          </ul></div>
+      </div>
+    </div>
+
+    <section id="cnn-eval" style="margin-top:2.2rem" aria-labelledby="cnne-h">
+      <div class="section-head" style="text-align:left;margin:0 0 1rem;max-width:none">
+        <span class="eyebrow light">Deep learning</span>
+        <h2 id="cnne-h" style="margin-top:.6rem">CNN model evaluation (held-out test split)</h2>
+        <p class="muted">These scores come from images that were <b>never used for training or model selection</b>, computed by the evaluate scripts and saved next to each model. Training-history curves below are shown for transparency only; they are not test results. Nothing here is estimated or invented.</p>
+      </div>
+      <div id="cnne-body"><div class="status"><span class="spinner" aria-hidden="true"></span>Loading…</div></div>
+    </section>
+  </div></div></main>
+  <script src="js/app.js"></script><script src="js/ui.js"></script><script src="js/evaluation.js"></script><script src="js/cnn_eval.js"></script>
+</body>
+</html>

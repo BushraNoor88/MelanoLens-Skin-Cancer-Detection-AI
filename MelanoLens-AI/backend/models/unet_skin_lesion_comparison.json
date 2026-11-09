@@ -1,0 +1,1636 @@
+{
+  "task": "segmentation_comparison",
+  "evaluated_on": "held-out test split",
+  "evaluated_at": "2026-11-08T22:23:09",
+  "n_test": 135,
+  "split_sizes": {
+    "train": 630,
+    "val": 135,
+    "test": 135
+  },
+  "classical": {
+    "headline_method": "canny:conventional",
+    "parameters": "app defaults",
+    "selection": {
+      "selected_on": "validation split",
+      "n_validation": 135,
+      "validation_mean_dice": {
+        "canny:conventional": 0.5368,
+        "canny:enhanced": 0.4517,
+        "sobel:conventional": 0.1127,
+        "sobel:enhanced": 0.05,
+        "prewitt:conventional": 0.1159,
+        "prewitt:enhanced": 0.0494,
+        "laplacian:conventional": 0.2755,
+        "laplacian:enhanced": 0.0945,
+        "log:conventional": 0.295,
+        "log:enhanced": 0.2551
+      },
+      "chosen": "canny:conventional"
+    },
+    "n_no_mask": 0,
+    "n_no_mask_note": "images where the classical pipeline found no candidate contour (scored as an empty mask, Dice 0)"
+  },
+  "cnn": {
+    "model": "U-Net",
+    "n_empty_prediction": 0
+  },
+  "headline": {
+    "cnn": {
+      "dice": {
+        "mean": 0.8988,
+        "std": 0.1044,
+        "median": 0.9305,
+        "ci95": [
+          0.8797,
+          0.9147
+        ],
+        "n": 135
+      },
+      "iou": {
+        "mean": 0.8288,
+        "std": 0.1359,
+        "median": 0.8701,
+        "ci95": [
+          0.8047,
+          0.8501
+        ],
+        "n": 135
+      },
+      "precision": {
+        "mean": 0.9164,
+        "std": 0.1169,
+        "median": 0.9533,
+        "ci95": [
+          0.8954,
+          0.935
+        ],
+        "n": 135
+      },
+      "recall": {
+        "mean": 0.9088,
+        "std": 0.1284,
+        "median": 0.9708,
+        "ci95": [
+          0.886,
+          0.9293
+        ],
+        "n": 135
+      },
+      "pixel_accuracy": {
+        "mean": 0.9431,
+        "std": 0.0851,
+        "median": 0.9717,
+        "ci95": [
+          0.9275,
+          0.956
+        ],
+        "n": 135
+      }
+    },
+    "classical": {
+      "dice": {
+        "mean": 0.5453,
+        "std": 0.3072,
+        "median": 0.5769,
+        "ci95": [
+          0.4945,
+          0.5985
+        ],
+        "n": 135
+      },
+      "iou": {
+        "mean": 0.4358,
+        "std": 0.2926,
+        "median": 0.4053,
+        "ci95": [
+          0.388,
+          0.487
+        ],
+        "n": 135
+      },
+      "precision": {
+        "mean": 0.4986,
+        "std": 0.3526,
+        "median": 0.426,
+        "ci95": [
+          0.442,
+          0.5593
+        ],
+        "n": 135
+      },
+      "recall": {
+        "mean": 0.8045,
+        "std": 0.289,
+        "median": 0.9205,
+        "ci95": [
+          0.7541,
+          0.851
+        ],
+        "n": 135
+      },
+      "pixel_accuracy": {
+        "mean": 0.6833,
+        "std": 0.2082,
+        "median": 0.7298,
+        "ci95": [
+          0.6482,
+          0.718
+        ],
+        "n": 135
+      }
+    }
+  },
+  "paired": {
+    "dice": {
+      "mean_difference": 0.3534,
+      "ci95": [
+        0.3006,
+        0.4045
+      ],
+      "wilcoxon_p": 4.04e-22,
+      "cnn_better": 126,
+      "ties": 3,
+      "classical_better": 6,
+      "n": 135
+    },
+    "iou": {
+      "mean_difference": 0.393,
+      "ci95": [
+        0.3425,
+        0.4412
+      ],
+      "wilcoxon_p": 2.92e-22,
+      "cnn_better": 128,
+      "ties": 0,
+      "classical_better": 7,
+      "n": 135
+    }
+  },
+  "classical_all_methods": [
+    {
+      "method": "canny:conventional",
+      "dice": {
+        "mean": 0.5453,
+        "std": 0.3072,
+        "median": 0.5769,
+        "ci95": [
+          0.4945,
+          0.5985
+        ],
+        "n": 135
+      },
+      "iou": {
+        "mean": 0.4358,
+        "std": 0.2926,
+        "median": 0.4053,
+        "ci95": [
+          0.388,
+          0.487
+        ],
+        "n": 135
+      },
+      "n_no_mask": 0
+    },
+    {
+      "method": "canny:enhanced",
+      "dice": {
+        "mean": 0.457,
+        "std": 0.3107,
+        "median": 0.45,
+        "ci95": [
+          0.4058,
+          0.5103
+        ],
+        "n": 135
+      },
+      "iou": {
+        "mean": 0.3526,
+        "std": 0.2842,
+        "median": 0.2903,
+        "ci95": [
+          0.3066,
+          0.4016
+        ],
+        "n": 135
+      },
+      "n_no_mask": 13
+    },
+    {
+      "method": "sobel:conventional",
+      "dice": {
+        "mean": 0.1314,
+        "std": 0.229,
+        "median": 0.0019,
+        "ci95": [
+          0.0947,
+          0.1715
+        ],
+        "n": 135
+      },
+      "iou": {
+        "mean": 0.0921,
+        "std": 0.1795,
+        "median": 0.0009,
+        "ci95": [
+          0.0635,
+          0.1239
+        ],
+        "n": 135
+      },
+      "n_no_mask": 39
+    },
+    {
+      "method": "sobel:enhanced",
+      "dice": {
+        "mean": 0.0637,
+        "std": 0.1562,
+        "median": 0.0,
+        "ci95": [
+          0.0392,
+          0.0921
+        ],
+        "n": 135
+      },
+      "iou": {
+        "mean": 0.0425,
+        "std": 0.1199,
+        "median": 0.0,
+        "ci95": [
+          0.0241,
+          0.0645
+        ],
+        "n": 135
+      },
+      "n_no_mask": 64
+    },
+    {
+      "method": "prewitt:conventional",
+      "dice": {
+        "mean": 0.141,
+        "std": 0.239,
+        "median": 0.005,
+        "ci95": [
+          0.1028,
+          0.1829
+        ],
+        "n": 135
+      },
+      "iou": {
+        "mean": 0.0997,
+        "std": 0.1875,
+        "median": 0.0025,
+        "ci95": [
+          0.0699,
+          0.133
+        ],
+        "n": 135
+      },
+      "n_no_mask": 37
+    },
+    {
+      "method": "prewitt:enhanced",
+      "dice": {
+        "mean": 0.0621,
+        "std": 0.1565,
+        "median": 0.0,
+        "ci95": [
+          0.0378,
+          0.0908
+        ],
+        "n": 135
+      },
+      "iou": {
+        "mean": 0.0416,
+        "std": 0.1198,
+        "median": 0.0,
+        "ci95": [
+          0.0233,
+          0.0637
+        ],
+        "n": 135
+      },
+      "n_no_mask": 67
+    },
+    {
+      "method": "laplacian:conventional",
+      "dice": {
+        "mean": 0.2023,
+        "std": 0.2771,
+        "median": 0.0581,
+        "ci95": [
+          0.1564,
+          0.2498
+        ],
+        "n": 135
+      },
+      "iou": {
+        "mean": 0.1467,
+        "std": 0.2244,
+        "median": 0.0299,
+        "ci95": [
+          0.1099,
+          0.1857
+        ],
+        "n": 135
+      },
+      "n_no_mask": 26
+    },
+    {
+      "method": "laplacian:enhanced",
+      "dice": {
+        "mean": 0.1114,
+        "std": 0.2115,
+        "median": 0.0,
+        "ci95": [
+          0.0768,
+          0.1485
+        ],
+        "n": 135
+      },
+      "iou": {
+        "mean": 0.0773,
+        "std": 0.165,
+        "median": 0.0,
+        "ci95": [
+          0.0506,
+          0.1067
+        ],
+        "n": 135
+      },
+      "n_no_mask": 44
+    },
+    {
+      "method": "log:conventional",
+      "dice": {
+        "mean": 0.2883,
+        "std": 0.325,
+        "median": 0.1362,
+        "ci95": [
+          0.2333,
+          0.3451
+        ],
+        "n": 135
+      },
+      "iou": {
+        "mean": 0.2199,
+        "std": 0.2738,
+        "median": 0.0731,
+        "ci95": [
+          0.1742,
+          0.2681
+        ],
+        "n": 135
+      },
+      "n_no_mask": 17
+    },
+    {
+      "method": "log:enhanced",
+      "dice": {
+        "mean": 0.2597,
+        "std": 0.3055,
+        "median": 0.0983,
+        "ci95": [
+          0.2092,
+          0.3111
+        ],
+        "n": 135
+      },
+      "iou": {
+        "mean": 0.1933,
+        "std": 0.2539,
+        "median": 0.0517,
+        "ci95": [
+          0.1519,
+          0.2362
+        ],
+        "n": 135
+      },
+      "n_no_mask": 18
+    }
+  ],
+  "per_image": [
+    {
+      "id": "ISIC_0000002",
+      "cnn_dice": 0.9548,
+      "classical_dice": 0.766,
+      "cnn_iou": 0.9136,
+      "classical_iou": 0.6208,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000008",
+      "cnn_dice": 0.9722,
+      "classical_dice": 0.8733,
+      "cnn_iou": 0.9459,
+      "classical_iou": 0.7751,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000009",
+      "cnn_dice": 0.9443,
+      "classical_dice": 0.5646,
+      "cnn_iou": 0.8944,
+      "classical_iou": 0.3934,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000011",
+      "cnn_dice": 0.9382,
+      "classical_dice": 0.7399,
+      "cnn_iou": 0.8836,
+      "classical_iou": 0.5872,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000017",
+      "cnn_dice": 0.9373,
+      "classical_dice": 0.3347,
+      "cnn_iou": 0.882,
+      "classical_iou": 0.201,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000031",
+      "cnn_dice": 0.5672,
+      "classical_dice": 0.7258,
+      "cnn_iou": 0.3959,
+      "classical_iou": 0.5696,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000038",
+      "cnn_dice": 0.9028,
+      "classical_dice": 0.8422,
+      "cnn_iou": 0.8228,
+      "classical_iou": 0.7274,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000044",
+      "cnn_dice": 0.9884,
+      "classical_dice": 0.912,
+      "cnn_iou": 0.977,
+      "classical_iou": 0.8383,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000051",
+      "cnn_dice": 0.9664,
+      "classical_dice": 0.5769,
+      "cnn_iou": 0.935,
+      "classical_iou": 0.4053,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000055",
+      "cnn_dice": 0.9587,
+      "classical_dice": 0.9007,
+      "cnn_iou": 0.9207,
+      "classical_iou": 0.8193,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000077",
+      "cnn_dice": 0.8871,
+      "classical_dice": 0.8062,
+      "cnn_iou": 0.7971,
+      "classical_iou": 0.6753,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000081",
+      "cnn_dice": 0.8992,
+      "classical_dice": 0.23,
+      "cnn_iou": 0.8169,
+      "classical_iou": 0.1299,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000091",
+      "cnn_dice": 0.6381,
+      "classical_dice": 0.3072,
+      "cnn_iou": 0.4686,
+      "classical_iou": 0.1815,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000097",
+      "cnn_dice": 0.8875,
+      "classical_dice": 0.6191,
+      "cnn_iou": 0.7978,
+      "classical_iou": 0.4484,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000122",
+      "cnn_dice": 0.9514,
+      "classical_dice": 0.7893,
+      "cnn_iou": 0.9073,
+      "classical_iou": 0.6519,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000123",
+      "cnn_dice": 0.7206,
+      "classical_dice": 0.3684,
+      "cnn_iou": 0.5632,
+      "classical_iou": 0.2258,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000128",
+      "cnn_dice": 0.9355,
+      "classical_dice": 0.4226,
+      "cnn_iou": 0.8788,
+      "classical_iou": 0.2679,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000131",
+      "cnn_dice": 0.887,
+      "classical_dice": 0.9837,
+      "cnn_iou": 0.7969,
+      "classical_iou": 0.9679,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000135",
+      "cnn_dice": 0.97,
+      "classical_dice": 0.5974,
+      "cnn_iou": 0.9417,
+      "classical_iou": 0.426,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000143",
+      "cnn_dice": 0.8594,
+      "classical_dice": 0.518,
+      "cnn_iou": 0.7534,
+      "classical_iou": 0.3495,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000146",
+      "cnn_dice": 0.9607,
+      "classical_dice": 0.9158,
+      "cnn_iou": 0.9244,
+      "classical_iou": 0.8447,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000148",
+      "cnn_dice": 0.9543,
+      "classical_dice": 0.5499,
+      "cnn_iou": 0.9126,
+      "classical_iou": 0.3793,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000171",
+      "cnn_dice": 0.9546,
+      "classical_dice": 0.854,
+      "cnn_iou": 0.9131,
+      "classical_iou": 0.7452,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000173",
+      "cnn_dice": 0.8038,
+      "classical_dice": 0.5248,
+      "cnn_iou": 0.672,
+      "classical_iou": 0.3557,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000181",
+      "cnn_dice": 0.9416,
+      "classical_dice": 0.6338,
+      "cnn_iou": 0.8897,
+      "classical_iou": 0.4639,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000189",
+      "cnn_dice": 0.9588,
+      "classical_dice": 0.8181,
+      "cnn_iou": 0.9208,
+      "classical_iou": 0.6922,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000190",
+      "cnn_dice": 0.9703,
+      "classical_dice": 0.8994,
+      "cnn_iou": 0.9424,
+      "classical_iou": 0.8171,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000193",
+      "cnn_dice": 0.9429,
+      "classical_dice": 0.5912,
+      "cnn_iou": 0.8919,
+      "classical_iou": 0.4196,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000205",
+      "cnn_dice": 0.9535,
+      "classical_dice": 0.879,
+      "cnn_iou": 0.911,
+      "classical_iou": 0.7841,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000214",
+      "cnn_dice": 0.9674,
+      "classical_dice": 0.5075,
+      "cnn_iou": 0.9369,
+      "classical_iou": 0.34,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000215",
+      "cnn_dice": 0.936,
+      "classical_dice": 0.8868,
+      "cnn_iou": 0.8797,
+      "classical_iou": 0.7966,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000219",
+      "cnn_dice": 0.7645,
+      "classical_dice": 0.6588,
+      "cnn_iou": 0.6188,
+      "classical_iou": 0.4912,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000223",
+      "cnn_dice": 0.9715,
+      "classical_dice": 0.9175,
+      "cnn_iou": 0.9446,
+      "classical_iou": 0.8477,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000224",
+      "cnn_dice": 0.9867,
+      "classical_dice": 0.9045,
+      "cnn_iou": 0.9738,
+      "classical_iou": 0.8256,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000225",
+      "cnn_dice": 0.9545,
+      "classical_dice": 0.2769,
+      "cnn_iou": 0.9129,
+      "classical_iou": 0.1607,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000255",
+      "cnn_dice": 0.97,
+      "classical_dice": 0.9284,
+      "cnn_iou": 0.9418,
+      "classical_iou": 0.8664,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000259",
+      "cnn_dice": 0.949,
+      "classical_dice": 0.8087,
+      "cnn_iou": 0.9029,
+      "classical_iou": 0.6788,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000274",
+      "cnn_dice": 0.9624,
+      "classical_dice": 0.9195,
+      "cnn_iou": 0.9275,
+      "classical_iou": 0.851,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000293",
+      "cnn_dice": 0.844,
+      "classical_dice": 0.8852,
+      "cnn_iou": 0.7301,
+      "classical_iou": 0.7941,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000303",
+      "cnn_dice": 0.9069,
+      "classical_dice": 0.8465,
+      "cnn_iou": 0.8297,
+      "classical_iou": 0.7339,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000321",
+      "cnn_dice": 0.9661,
+      "classical_dice": 0.6431,
+      "cnn_iou": 0.9344,
+      "classical_iou": 0.474,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000346",
+      "cnn_dice": 0.9767,
+      "classical_dice": 0.4555,
+      "cnn_iou": 0.9544,
+      "classical_iou": 0.2949,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000353",
+      "cnn_dice": 0.9677,
+      "classical_dice": 0.4554,
+      "cnn_iou": 0.9375,
+      "classical_iou": 0.2948,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000355",
+      "cnn_dice": 0.9308,
+      "classical_dice": 0.8049,
+      "cnn_iou": 0.8705,
+      "classical_iou": 0.6735,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000364",
+      "cnn_dice": 0.9487,
+      "classical_dice": 0.7204,
+      "cnn_iou": 0.9023,
+      "classical_iou": 0.563,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000365",
+      "cnn_dice": 0.9642,
+      "classical_dice": 0.3094,
+      "cnn_iou": 0.9309,
+      "classical_iou": 0.183,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000372",
+      "cnn_dice": 0.9121,
+      "classical_dice": 0.668,
+      "cnn_iou": 0.8384,
+      "classical_iou": 0.5015,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000381",
+      "cnn_dice": 0.9159,
+      "classical_dice": 0.8118,
+      "cnn_iou": 0.8449,
+      "classical_iou": 0.6832,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000383",
+      "cnn_dice": 0.9409,
+      "classical_dice": 0.7698,
+      "cnn_iou": 0.8885,
+      "classical_iou": 0.6258,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000397",
+      "cnn_dice": 0.938,
+      "classical_dice": 0.4635,
+      "cnn_iou": 0.8833,
+      "classical_iou": 0.3017,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000403",
+      "cnn_dice": 0.909,
+      "classical_dice": 0.8301,
+      "cnn_iou": 0.8331,
+      "classical_iou": 0.7095,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000419",
+      "cnn_dice": 0.9571,
+      "classical_dice": 0.9436,
+      "cnn_iou": 0.9177,
+      "classical_iou": 0.8932,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000431",
+      "cnn_dice": 0.921,
+      "classical_dice": 0.3684,
+      "cnn_iou": 0.8536,
+      "classical_iou": 0.2258,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000442",
+      "cnn_dice": 0.7926,
+      "classical_dice": 0.5199,
+      "cnn_iou": 0.6565,
+      "classical_iou": 0.3513,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000445",
+      "cnn_dice": 0.8663,
+      "classical_dice": 0.2964,
+      "cnn_iou": 0.7641,
+      "classical_iou": 0.174,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000453",
+      "cnn_dice": 0.9564,
+      "classical_dice": 0.4504,
+      "cnn_iou": 0.9165,
+      "classical_iou": 0.2907,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000471",
+      "cnn_dice": 0.9321,
+      "classical_dice": 0.322,
+      "cnn_iou": 0.8729,
+      "classical_iou": 0.1919,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000474",
+      "cnn_dice": 0.9523,
+      "classical_dice": 0.943,
+      "cnn_iou": 0.909,
+      "classical_iou": 0.8921,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000483",
+      "cnn_dice": 0.9618,
+      "classical_dice": 0.8888,
+      "cnn_iou": 0.9265,
+      "classical_iou": 0.7998,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000507",
+      "cnn_dice": 0.9604,
+      "classical_dice": 0.8746,
+      "cnn_iou": 0.9238,
+      "classical_iou": 0.7771,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000514",
+      "cnn_dice": 0.9503,
+      "classical_dice": 0.2899,
+      "cnn_iou": 0.9052,
+      "classical_iou": 0.1695,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000523",
+      "cnn_dice": 0.9312,
+      "classical_dice": 0.3715,
+      "cnn_iou": 0.8712,
+      "classical_iou": 0.2281,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000538",
+      "cnn_dice": 0.9803,
+      "classical_dice": 0.4775,
+      "cnn_iou": 0.9613,
+      "classical_iou": 0.3136,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000544",
+      "cnn_dice": 0.9197,
+      "classical_dice": 0.5046,
+      "cnn_iou": 0.8514,
+      "classical_iou": 0.3375,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0000900",
+      "cnn_dice": 0.9247,
+      "classical_dice": 0.0,
+      "cnn_iou": 0.86,
+      "classical_iou": 0.0,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0001148",
+      "cnn_dice": 0.9302,
+      "classical_dice": 0.805,
+      "cnn_iou": 0.8695,
+      "classical_iou": 0.6737,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0001184",
+      "cnn_dice": 0.9284,
+      "classical_dice": 0.0,
+      "cnn_iou": 0.8664,
+      "classical_iou": 0.0,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0001191",
+      "cnn_dice": 0.7098,
+      "classical_dice": 0.0992,
+      "cnn_iou": 0.5502,
+      "classical_iou": 0.0522,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0001275",
+      "cnn_dice": 0.8311,
+      "classical_dice": 0.0,
+      "cnn_iou": 0.711,
+      "classical_iou": 0.0,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0001286",
+      "cnn_dice": 0.8783,
+      "classical_dice": 0.1575,
+      "cnn_iou": 0.783,
+      "classical_iou": 0.0855,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0001449",
+      "cnn_dice": 0.9064,
+      "classical_dice": 0.0,
+      "cnn_iou": 0.8288,
+      "classical_iou": 0.0,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0002206",
+      "cnn_dice": 0.8944,
+      "classical_dice": 0.1022,
+      "cnn_iou": 0.809,
+      "classical_iou": 0.0538,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0002251",
+      "cnn_dice": 0.8955,
+      "classical_dice": 0.3433,
+      "cnn_iou": 0.8108,
+      "classical_iou": 0.2072,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0002287",
+      "cnn_dice": 0.8485,
+      "classical_dice": 0.0,
+      "cnn_iou": 0.7369,
+      "classical_iou": 0.0,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0002439",
+      "cnn_dice": 0.8291,
+      "classical_dice": 0.1794,
+      "cnn_iou": 0.7081,
+      "classical_iou": 0.0986,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0002453",
+      "cnn_dice": 0.9462,
+      "classical_dice": 0.1259,
+      "cnn_iou": 0.8979,
+      "classical_iou": 0.0672,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0002616",
+      "cnn_dice": 0.8909,
+      "classical_dice": 0.0928,
+      "cnn_iou": 0.8033,
+      "classical_iou": 0.0486,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0002806",
+      "cnn_dice": 0.9458,
+      "classical_dice": 0.9374,
+      "cnn_iou": 0.8972,
+      "classical_iou": 0.8823,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0003346",
+      "cnn_dice": 0.8445,
+      "classical_dice": 0.0,
+      "cnn_iou": 0.7309,
+      "classical_iou": 0.0,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0006350",
+      "cnn_dice": 0.9592,
+      "classical_dice": 0.286,
+      "cnn_iou": 0.9217,
+      "classical_iou": 0.1668,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0006940",
+      "cnn_dice": 0.7818,
+      "classical_dice": 0.1055,
+      "cnn_iou": 0.6417,
+      "classical_iou": 0.0557,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0008236",
+      "cnn_dice": 0.9584,
+      "classical_dice": 0.0,
+      "cnn_iou": 0.9201,
+      "classical_iou": 0.0,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0008256",
+      "cnn_dice": 0.9238,
+      "classical_dice": 0.0,
+      "cnn_iou": 0.8585,
+      "classical_iou": 0.0,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0008552",
+      "cnn_dice": 0.8906,
+      "classical_dice": 0.0,
+      "cnn_iou": 0.8027,
+      "classical_iou": 0.0,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0008879",
+      "cnn_dice": 0.9603,
+      "classical_dice": 0.0,
+      "cnn_iou": 0.9237,
+      "classical_iou": 0.0,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0009297",
+      "cnn_dice": 0.901,
+      "classical_dice": 0.0,
+      "cnn_iou": 0.8199,
+      "classical_iou": 0.0,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0009888",
+      "cnn_dice": 0.9389,
+      "classical_dice": 0.2807,
+      "cnn_iou": 0.8849,
+      "classical_iou": 0.1632,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0009925",
+      "cnn_dice": 0.8305,
+      "classical_dice": 0.698,
+      "cnn_iou": 0.7101,
+      "classical_iou": 0.5361,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0009950",
+      "cnn_dice": 0.8504,
+      "classical_dice": 0.5031,
+      "cnn_iou": 0.7397,
+      "classical_iou": 0.3361,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0009961",
+      "cnn_dice": 0.9609,
+      "classical_dice": 0.911,
+      "cnn_iou": 0.9248,
+      "classical_iou": 0.8366,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0009969",
+      "cnn_dice": 0.9725,
+      "classical_dice": 0.7802,
+      "cnn_iou": 0.9465,
+      "classical_iou": 0.6396,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0009991",
+      "cnn_dice": 0.9814,
+      "classical_dice": 0.9527,
+      "cnn_iou": 0.9634,
+      "classical_iou": 0.9097,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010017",
+      "cnn_dice": 0.9036,
+      "classical_dice": 0.8569,
+      "cnn_iou": 0.8241,
+      "classical_iou": 0.7496,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010022",
+      "cnn_dice": 0.8727,
+      "classical_dice": 0.7926,
+      "cnn_iou": 0.7742,
+      "classical_iou": 0.6564,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010056",
+      "cnn_dice": 0.802,
+      "classical_dice": 0.7372,
+      "cnn_iou": 0.6695,
+      "classical_iou": 0.5837,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010078",
+      "cnn_dice": 0.9146,
+      "classical_dice": 0.8309,
+      "cnn_iou": 0.8426,
+      "classical_iou": 0.7107,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010079",
+      "cnn_dice": 0.8359,
+      "classical_dice": 0.867,
+      "cnn_iou": 0.7181,
+      "classical_iou": 0.7652,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010184",
+      "cnn_dice": 0.875,
+      "classical_dice": 0.2195,
+      "cnn_iou": 0.7778,
+      "classical_iou": 0.1233,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010212",
+      "cnn_dice": 0.9363,
+      "classical_dice": 0.8557,
+      "cnn_iou": 0.8802,
+      "classical_iou": 0.7477,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010218",
+      "cnn_dice": 0.9367,
+      "classical_dice": 0.8326,
+      "cnn_iou": 0.881,
+      "classical_iou": 0.7133,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010220",
+      "cnn_dice": 0.9519,
+      "classical_dice": 0.2846,
+      "cnn_iou": 0.9083,
+      "classical_iou": 0.1659,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010226",
+      "cnn_dice": 0.8852,
+      "classical_dice": 0.3384,
+      "cnn_iou": 0.794,
+      "classical_iou": 0.2037,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010232",
+      "cnn_dice": 0.9228,
+      "classical_dice": 0.8126,
+      "cnn_iou": 0.8567,
+      "classical_iou": 0.6843,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010264",
+      "cnn_dice": 0.9368,
+      "classical_dice": 0.8147,
+      "cnn_iou": 0.8811,
+      "classical_iou": 0.6873,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010266",
+      "cnn_dice": 0.8712,
+      "classical_dice": 0.1936,
+      "cnn_iou": 0.7718,
+      "classical_iou": 0.1071,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010318",
+      "cnn_dice": 0.9679,
+      "classical_dice": 0.3366,
+      "cnn_iou": 0.9377,
+      "classical_iou": 0.2024,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010335",
+      "cnn_dice": 0.8745,
+      "classical_dice": 0.7644,
+      "cnn_iou": 0.777,
+      "classical_iou": 0.6186,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010365",
+      "cnn_dice": 0.9677,
+      "classical_dice": 0.7233,
+      "cnn_iou": 0.9375,
+      "classical_iou": 0.5665,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010370",
+      "cnn_dice": 0.7498,
+      "classical_dice": 0.2791,
+      "cnn_iou": 0.5998,
+      "classical_iou": 0.1622,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010435",
+      "cnn_dice": 0.8957,
+      "classical_dice": 0.0,
+      "cnn_iou": 0.8111,
+      "classical_iou": 0.0,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010436",
+      "cnn_dice": 0.9502,
+      "classical_dice": 0.1677,
+      "cnn_iou": 0.9052,
+      "classical_iou": 0.0915,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010439",
+      "cnn_dice": 0.9486,
+      "classical_dice": 0.0677,
+      "cnn_iou": 0.9021,
+      "classical_iou": 0.035,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010445",
+      "cnn_dice": 0.9096,
+      "classical_dice": 0.733,
+      "cnn_iou": 0.8342,
+      "classical_iou": 0.5786,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010466",
+      "cnn_dice": 0.9234,
+      "classical_dice": 0.2292,
+      "cnn_iou": 0.8577,
+      "classical_iou": 0.1294,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010557",
+      "cnn_dice": 0.9479,
+      "classical_dice": 0.1813,
+      "cnn_iou": 0.9009,
+      "classical_iou": 0.0997,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010571",
+      "cnn_dice": 0.9853,
+      "classical_dice": 0.821,
+      "cnn_iou": 0.971,
+      "classical_iou": 0.6964,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010573",
+      "cnn_dice": 0.9175,
+      "classical_dice": 0.8115,
+      "cnn_iou": 0.8476,
+      "classical_iou": 0.6828,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010605",
+      "cnn_dice": 0.279,
+      "classical_dice": 0.6492,
+      "cnn_iou": 0.1621,
+      "classical_iou": 0.4806,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010849",
+      "cnn_dice": 0.8299,
+      "classical_dice": 0.5559,
+      "cnn_iou": 0.7093,
+      "classical_iou": 0.3849,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010851",
+      "cnn_dice": 0.899,
+      "classical_dice": 0.5732,
+      "cnn_iou": 0.8166,
+      "classical_iou": 0.4017,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0010864",
+      "cnn_dice": 0.946,
+      "classical_dice": 0.3164,
+      "cnn_iou": 0.8975,
+      "classical_iou": 0.1879,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0011084",
+      "cnn_dice": 0.8598,
+      "classical_dice": 0.5009,
+      "cnn_iou": 0.7541,
+      "classical_iou": 0.3341,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0011119",
+      "cnn_dice": 0.977,
+      "classical_dice": 0.451,
+      "cnn_iou": 0.9551,
+      "classical_iou": 0.2912,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0011123",
+      "cnn_dice": 0.9729,
+      "classical_dice": 0.9292,
+      "cnn_iou": 0.9472,
+      "classical_iou": 0.8677,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0011131",
+      "cnn_dice": 0.9176,
+      "classical_dice": 0.574,
+      "cnn_iou": 0.8477,
+      "classical_iou": 0.4025,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0011158",
+      "cnn_dice": 0.7499,
+      "classical_dice": 0.7596,
+      "cnn_iou": 0.5999,
+      "classical_iou": 0.6124,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0011159",
+      "cnn_dice": 0.762,
+      "classical_dice": 0.5672,
+      "cnn_iou": 0.6155,
+      "classical_iou": 0.3959,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0011173",
+      "cnn_dice": 0.871,
+      "classical_dice": 0.0946,
+      "cnn_iou": 0.7715,
+      "classical_iou": 0.0496,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0011217",
+      "cnn_dice": 0.9305,
+      "classical_dice": 0.2856,
+      "cnn_iou": 0.8701,
+      "classical_iou": 0.1666,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0011350",
+      "cnn_dice": 0.9187,
+      "classical_dice": 0.7754,
+      "cnn_iou": 0.8496,
+      "classical_iou": 0.6331,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0011356",
+      "cnn_dice": 0.6654,
+      "classical_dice": 0.5863,
+      "cnn_iou": 0.4986,
+      "classical_iou": 0.4147,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0011358",
+      "cnn_dice": 0.9196,
+      "classical_dice": 0.857,
+      "cnn_iou": 0.8511,
+      "classical_iou": 0.7497,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0011373",
+      "cnn_dice": 0.9062,
+      "classical_dice": 0.93,
+      "cnn_iou": 0.8285,
+      "classical_iou": 0.8692,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0011382",
+      "cnn_dice": 0.9747,
+      "classical_dice": 0.9291,
+      "cnn_iou": 0.9506,
+      "classical_iou": 0.8675,
+      "classical_found": true,
+      "cnn_found": true
+    },
+    {
+      "id": "ISIC_0011393",
+      "cnn_dice": 0.2871,
+      "classical_dice": 0.1072,
+      "cnn_iou": 0.1676,
+      "classical_iou": 0.0567,
+      "classical_found": true,
+      "cnn_found": true
+    }
+  ],
+  "protocol": [
+    "Same held-out test images, same reference masks, same metric code and resolution for both methods.",
+    "The headline classical method was chosen on the validation split only.",
+    "Classical parameters are the app defaults (not tuned per image); results can differ with other settings.",
+    "Intervals are bootstrap 95% intervals over images (10 000 resamples); p is a Wilcoxon signed-rank test.",
+    "One dataset, one split: this shows which method did better here, not which is better in general."
+  ]
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MelanoLens AI - Boundary Analysis</title>
+  <meta name="theme-color" content="#101828">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="analysis.html">
+  <main id="main">
+    <header class="page-head"><div class="container">
+      <span class="eyebrow">Step 3 of 4</span>
+      <h1>Boundary Analysis</h1>
+      <p>Inspect the detected edges, the candidate contour, and the candidate binary mask. The mask is derived from edges; it is not a clinical segmentation.</p>
+    </div></header>
+    <div class="page-body"><div class="container">
+    <div id="empty" class="card empty-state" hidden></div>
+    <div id="content" hidden>
+      <div id="messages"></div>
+      <div class="layout-2 analysis-grid">
+        <section class="card" aria-labelledby="viewer-h">
+          <h2 id="viewer-h">Viewer</h2>
+          <div class="viewer-bar"><label for="view-select">Image</label><select id="view-select"></select>
+            <a class="btn ghost small" id="dl-current" href="#">Download this</a>
+            <a class="btn ghost small" id="dl-overlay" href="#">Download contour overlay</a>
+            <a class="btn ghost small" id="dl-mask" href="#">Download binary mask</a></div>
+          <div id="viewer-toolbar"></div>
+          <div id="viewer"></div>
+          <p class="muted">Scroll to zoom, drag to pan. Keyboard: + / − / 0 when the viewer is focused.</p>
+        </section>
+        <section>
+          <div class="card" aria-labelledby="meas-h">
+            <h2 id="meas-h">Selected contour</h2>
+            <p class="muted" id="meas-context"></p>
+            <div class="stat-grid" id="stats"></div>
+          </div>
+          <div class="card" style="margin-top:1rem" aria-labelledby="cand-h">
+            <h2 id="cand-h">Candidate contours</h2>
+            <p class="muted">The largest contour is not always the lesion. Pick another candidate to inspect it; the page reprocesses with the same settings.</p>
+            <div class="field"><label for="selection">Automatic selection rule</label>
+              <select id="selection"><option value="largest">Largest valid contour</option><option value="most_circular">Most circular</option><option value="closest_to_center">Closest to centre</option></select></div>
+            <div class="table-wrap" style="margin-top:.6rem"><table><thead><tr><th>#</th><th>Area px</th><th>Perimeter px</th><th>Circularity</th><th></th></tr></thead><tbody id="cand-body"></tbody></table></div>
+          </div>
+        </section>
+      </div>
+
+      <section class="card" style="margin-top:1rem" aria-labelledby="cmp-h">
+        <h2 id="cmp-h">Before / after comparison</h2>
+        <div class="viewer-bar">
+          <label for="cmp-left">Before</label><select id="cmp-left"></select>
+          <label for="cmp-right">After</label><select id="cmp-right"></select>
+        </div>
+        <div id="cmp-toolbar"></div><div id="cmp-viewer"></div>
+        <label class="muted" for="cmp-slider">Drag the slider to reveal the "after" image (left side shows "before").</label>
+        <input class="compare-slider" id="cmp-slider" type="range" min="0" max="100" value="50">
+      </section>
+
+      <section class="card" id="cnn" style="margin-top:1rem" aria-labelledby="cnn-h">
+        <div class="btn-row" style="justify-content:space-between">
+          <h2 id="cnn-h" style="margin:0">CNN analysis <span class="badge alt">deep learning</span></h2>
+          <a class="btn ghost small" href="evaluation.html#cnn-eval">Held-out test metrics →</a>
+        </div>
+        <p class="muted" style="margin-top:.5rem">Two CNNs trained separately on ISIC data run on this same image: a <b>U-Net</b> that segments the lesion, and a <b>MobileNetV2</b> classifier that predicts a diagnosis category. Their output is shown beside the classical pipeline above. A CNN is not automatically more accurate than classical image processing.</p>
+        <div id="cnn-status" aria-live="polite"></div>
+
+        <div class="cnn-block">
+          <div class="btn-row" style="justify-content:space-between"><h3 style="margin:0">Segmentation: classical vs CNN</h3>
+            <button class="btn primary small" id="cnn-seg-btn" type="button" disabled>Run CNN segmentation</button></div>
+          <div class="status" id="cnn-seg-status" role="status"></div>
+          <div id="cnn-seg-result" hidden>
+            <div class="cnn-figs" id="cnn-figs"></div>
+            <div class="stat-grid" id="cnn-seg-stats" style="margin-top:1rem"></div>
+            <div id="cnn-seg-warnings"></div>
+            <div id="cnn-compare"></div>
+            <p class="muted" id="cnn-seg-model" style="margin:.8rem 0 0"></p>
+          </div>
+        </div>
+
+        <div class="cnn-block">
+          <div class="btn-row" style="justify-content:space-between"><h3 style="margin:0">Classification</h3>
+            <button class="btn primary small" id="cnn-cls-btn" type="button" disabled>Classify lesion</button></div>
+          <div class="status" id="cnn-cls-status" role="status"></div>
+          <div id="cnn-cls-result" hidden></div>
+        </div>
+      </section>
+
+      <section class="card" style="margin-top:1rem" aria-labelledby="ref-h">
+        <h2 id="ref-h">Reference mask comparison</h2>
+        <div id="ref-none" class="alert info" hidden>Ground-truth mask unavailable. No scores are shown. Upload an image together with a reference mask to enable this section.</div>
+        <div id="ref-body" hidden>
+          <div class="grid cols-3">
+            <figure class="figure-frame"><img id="ref-img" alt="Reference mask"><figcaption>Reference mask</figcaption></figure>
+            <figure class="figure-frame"><img id="pred-img" alt="Candidate mask"><figcaption>Candidate mask (selected)</figcaption></figure>
+            <figure class="figure-frame"><img id="diff-img" alt="Difference image"><figcaption>Difference</figcaption></figure>
+          </div>
+          <div class="legend" style="margin:.6rem 0"><span><i style="background:#00c800"></i>True positive</span><span><i style="background:#dc0000"></i>False positive</span><span><i style="background:#0078dc"></i>False negative</span></div>
+          <div class="stat-grid" id="ref-stats"></div>
+          <p class="muted" id="ref-note"></p>
+        </div>
+      </section>
+
+      <section class="card" style="margin-top:1rem"><h2>Definitions</h2><ul id="notes"></ul></section>
+    </div>
+  </div></div></main>
+  <script src="js/app.js"></script><script src="js/ui.js"></script><script src="js/labels.js"></script><script src="js/viewer.js"></script><script src="js/analysis.js"></script><script src="js/cnn.js"></script>
+</body>
+</html>

@@ -1,0 +1,1127 @@
+{
+  "task": "segmentation",
+  "model": "U-Net",
+  "evaluated_on": "held-out test split",
+  "n_test": 135,
+  "split_sizes": {
+    "train": 630,
+    "val": 135,
+    "test": 135
+  },
+  "evaluated_at": "2026-11-08T20:45:31",
+  "metrics": {
+    "dice": {
+      "mean": 0.8988,
+      "std": 0.1044,
+      "median": 0.9305,
+      "n": 135
+    },
+    "iou": {
+      "mean": 0.8288,
+      "std": 0.1359,
+      "median": 0.8701,
+      "n": 135
+    },
+    "precision": {
+      "mean": 0.9164,
+      "std": 0.1169,
+      "median": 0.9533,
+      "n": 135
+    },
+    "recall": {
+      "mean": 0.9088,
+      "std": 0.1284,
+      "median": 0.9708,
+      "n": 135
+    },
+    "pixel_accuracy": {
+      "mean": 0.9431,
+      "std": 0.0851,
+      "median": 0.9717,
+      "n": 135
+    }
+  },
+  "per_image": [
+    {
+      "id": "ISIC_0000002",
+      "dice": 0.9548,
+      "iou": 0.9136,
+      "precision": 0.9236,
+      "recall": 0.9882,
+      "pixel_accuracy": 0.9717
+    },
+    {
+      "id": "ISIC_0000008",
+      "dice": 0.9722,
+      "iou": 0.9459,
+      "precision": 0.9558,
+      "recall": 0.9892,
+      "pixel_accuracy": 0.9811
+    },
+    {
+      "id": "ISIC_0000009",
+      "dice": 0.9443,
+      "iou": 0.8944,
+      "precision": 0.8963,
+      "recall": 0.9976,
+      "pixel_accuracy": 0.9732
+    },
+    {
+      "id": "ISIC_0000011",
+      "dice": 0.9382,
+      "iou": 0.8836,
+      "precision": 0.8855,
+      "recall": 0.9976,
+      "pixel_accuracy": 0.9767
+    },
+    {
+      "id": "ISIC_0000017",
+      "dice": 0.9373,
+      "iou": 0.882,
+      "precision": 0.8821,
+      "recall": 0.9998,
+      "pixel_accuracy": 0.9797
+    },
+    {
+      "id": "ISIC_0000031",
+      "dice": 0.5672,
+      "iou": 0.3959,
+      "precision": 0.9994,
+      "recall": 0.3959,
+      "pixel_accuracy": 0.8034
+    },
+    {
+      "id": "ISIC_0000038",
+      "dice": 0.9028,
+      "iou": 0.8228,
+      "precision": 1.0,
+      "recall": 0.8228,
+      "pixel_accuracy": 0.908
+    },
+    {
+      "id": "ISIC_0000044",
+      "dice": 0.9884,
+      "iou": 0.977,
+      "precision": 0.9838,
+      "recall": 0.993,
+      "pixel_accuracy": 0.9882
+    },
+    {
+      "id": "ISIC_0000051",
+      "dice": 0.9664,
+      "iou": 0.935,
+      "precision": 0.9488,
+      "recall": 0.9847,
+      "pixel_accuracy": 0.9807
+    },
+    {
+      "id": "ISIC_0000055",
+      "dice": 0.9587,
+      "iou": 0.9207,
+      "precision": 0.9818,
+      "recall": 0.9367,
+      "pixel_accuracy": 0.9663
+    },
+    {
+      "id": "ISIC_0000077",
+      "dice": 0.8871,
+      "iou": 0.7971,
+      "precision": 0.9972,
+      "recall": 0.7989,
+      "pixel_accuracy": 0.9159
+    },
+    {
+      "id": "ISIC_0000081",
+      "dice": 0.8992,
+      "iou": 0.8169,
+      "precision": 0.8351,
+      "recall": 0.974,
+      "pixel_accuracy": 0.9755
+    },
+    {
+      "id": "ISIC_0000091",
+      "dice": 0.6381,
+      "iou": 0.4686,
+      "precision": 0.4686,
+      "recall": 1.0,
+      "pixel_accuracy": 0.844
+    },
+    {
+      "id": "ISIC_0000097",
+      "dice": 0.8875,
+      "iou": 0.7978,
+      "precision": 0.7978,
+      "recall": 1.0,
+      "pixel_accuracy": 0.9389
+    },
+    {
+      "id": "ISIC_0000122",
+      "dice": 0.9514,
+      "iou": 0.9073,
+      "precision": 0.9463,
+      "recall": 0.9565,
+      "pixel_accuracy": 0.9619
+    },
+    {
+      "id": "ISIC_0000123",
+      "dice": 0.7206,
+      "iou": 0.5632,
+      "precision": 0.5632,
+      "recall": 1.0,
+      "pixel_accuracy": 0.8553
+    },
+    {
+      "id": "ISIC_0000128",
+      "dice": 0.9355,
+      "iou": 0.8788,
+      "precision": 0.8788,
+      "recall": 1.0,
+      "pixel_accuracy": 0.9793
+    },
+    {
+      "id": "ISIC_0000131",
+      "dice": 0.887,
+      "iou": 0.7969,
+      "precision": 0.7969,
+      "recall": 1.0,
+      "pixel_accuracy": 0.934
+    },
+    {
+      "id": "ISIC_0000135",
+      "dice": 0.97,
+      "iou": 0.9417,
+      "precision": 0.9449,
+      "recall": 0.9964,
+      "pixel_accuracy": 0.9938
+    },
+    {
+      "id": "ISIC_0000143",
+      "dice": 0.8594,
+      "iou": 0.7534,
+      "precision": 0.91,
+      "recall": 0.8141,
+      "pixel_accuracy": 0.926
+    },
+    {
+      "id": "ISIC_0000146",
+      "dice": 0.9607,
+      "iou": 0.9244,
+      "precision": 0.9294,
+      "recall": 0.9942,
+      "pixel_accuracy": 0.9699
+    },
+    {
+      "id": "ISIC_0000148",
+      "dice": 0.9543,
+      "iou": 0.9126,
+      "precision": 0.9255,
+      "recall": 0.9849,
+      "pixel_accuracy": 0.9861
+    },
+    {
+      "id": "ISIC_0000171",
+      "dice": 0.9546,
+      "iou": 0.9131,
+      "precision": 0.9522,
+      "recall": 0.957,
+      "pixel_accuracy": 0.9627
+    },
+    {
+      "id": "ISIC_0000173",
+      "dice": 0.8038,
+      "iou": 0.672,
+      "precision": 0.6772,
+      "recall": 0.9886,
+      "pixel_accuracy": 0.839
+    },
+    {
+      "id": "ISIC_0000181",
+      "dice": 0.9416,
+      "iou": 0.8897,
+      "precision": 0.8973,
+      "recall": 0.9906,
+      "pixel_accuracy": 0.9736
+    },
+    {
+      "id": "ISIC_0000189",
+      "dice": 0.9588,
+      "iou": 0.9208,
+      "precision": 0.9546,
+      "recall": 0.963,
+      "pixel_accuracy": 0.9663
+    },
+    {
+      "id": "ISIC_0000190",
+      "dice": 0.9703,
+      "iou": 0.9424,
+      "precision": 0.9821,
+      "recall": 0.9588,
+      "pixel_accuracy": 0.9648
+    },
+    {
+      "id": "ISIC_0000193",
+      "dice": 0.9429,
+      "iou": 0.8919,
+      "precision": 0.9972,
+      "recall": 0.8942,
+      "pixel_accuracy": 0.9668
+    },
+    {
+      "id": "ISIC_0000205",
+      "dice": 0.9535,
+      "iou": 0.911,
+      "precision": 0.9979,
+      "recall": 0.9128,
+      "pixel_accuracy": 0.9393
+    },
+    {
+      "id": "ISIC_0000214",
+      "dice": 0.9674,
+      "iou": 0.9369,
+      "precision": 0.9708,
+      "recall": 0.9641,
+      "pixel_accuracy": 0.9839
+    },
+    {
+      "id": "ISIC_0000215",
+      "dice": 0.936,
+      "iou": 0.8797,
+      "precision": 0.9996,
+      "recall": 0.8801,
+      "pixel_accuracy": 0.9119
+    },
+    {
+      "id": "ISIC_0000219",
+      "dice": 0.7645,
+      "iou": 0.6188,
+      "precision": 0.9775,
+      "recall": 0.6277,
+      "pixel_accuracy": 0.8561
+    },
+    {
+      "id": "ISIC_0000223",
+      "dice": 0.9715,
+      "iou": 0.9446,
+      "precision": 0.961,
+      "recall": 0.9822,
+      "pixel_accuracy": 0.9696
+    },
+    {
+      "id": "ISIC_0000224",
+      "dice": 0.9867,
+      "iou": 0.9738,
+      "precision": 0.9918,
+      "recall": 0.9817,
+      "pixel_accuracy": 0.9838
+    },
+    {
+      "id": "ISIC_0000225",
+      "dice": 0.9545,
+      "iou": 0.9129,
+      "precision": 0.9143,
+      "recall": 0.9984,
+      "pixel_accuracy": 0.9907
+    },
+    {
+      "id": "ISIC_0000255",
+      "dice": 0.97,
+      "iou": 0.9418,
+      "precision": 0.9684,
+      "recall": 0.9716,
+      "pixel_accuracy": 0.9882
+    },
+    {
+      "id": "ISIC_0000259",
+      "dice": 0.949,
+      "iou": 0.9029,
+      "precision": 0.9991,
+      "recall": 0.9037,
+      "pixel_accuracy": 0.9133
+    },
+    {
+      "id": "ISIC_0000274",
+      "dice": 0.9624,
+      "iou": 0.9275,
+      "precision": 0.9421,
+      "recall": 0.9835,
+      "pixel_accuracy": 0.9765
+    },
+    {
+      "id": "ISIC_0000293",
+      "dice": 0.844,
+      "iou": 0.7301,
+      "precision": 0.9994,
+      "recall": 0.7304,
+      "pixel_accuracy": 0.7887
+    },
+    {
+      "id": "ISIC_0000303",
+      "dice": 0.9069,
+      "iou": 0.8297,
+      "precision": 0.9935,
+      "recall": 0.8342,
+      "pixel_accuracy": 0.8448
+    },
+    {
+      "id": "ISIC_0000321",
+      "dice": 0.9661,
+      "iou": 0.9344,
+      "precision": 0.9428,
+      "recall": 0.9905,
+      "pixel_accuracy": 0.9696
+    },
+    {
+      "id": "ISIC_0000346",
+      "dice": 0.9767,
+      "iou": 0.9544,
+      "precision": 0.9707,
+      "recall": 0.9828,
+      "pixel_accuracy": 0.9891
+    },
+    {
+      "id": "ISIC_0000353",
+      "dice": 0.9677,
+      "iou": 0.9375,
+      "precision": 0.9817,
+      "recall": 0.9542,
+      "pixel_accuracy": 0.9848
+    },
+    {
+      "id": "ISIC_0000355",
+      "dice": 0.9308,
+      "iou": 0.8705,
+      "precision": 0.9942,
+      "recall": 0.875,
+      "pixel_accuracy": 0.9493
+    },
+    {
+      "id": "ISIC_0000364",
+      "dice": 0.9487,
+      "iou": 0.9023,
+      "precision": 0.9177,
+      "recall": 0.9818,
+      "pixel_accuracy": 0.9503
+    },
+    {
+      "id": "ISIC_0000365",
+      "dice": 0.9642,
+      "iou": 0.9309,
+      "precision": 0.9899,
+      "recall": 0.9398,
+      "pixel_accuracy": 0.99
+    },
+    {
+      "id": "ISIC_0000372",
+      "dice": 0.9121,
+      "iou": 0.8384,
+      "precision": 0.9857,
+      "recall": 0.8487,
+      "pixel_accuracy": 0.954
+    },
+    {
+      "id": "ISIC_0000381",
+      "dice": 0.9159,
+      "iou": 0.8449,
+      "precision": 0.9883,
+      "recall": 0.8535,
+      "pixel_accuracy": 0.9474
+    },
+    {
+      "id": "ISIC_0000383",
+      "dice": 0.9409,
+      "iou": 0.8885,
+      "precision": 0.9622,
+      "recall": 0.9206,
+      "pixel_accuracy": 0.9675
+    },
+    {
+      "id": "ISIC_0000397",
+      "dice": 0.938,
+      "iou": 0.8833,
+      "precision": 0.9763,
+      "recall": 0.9026,
+      "pixel_accuracy": 0.9734
+    },
+    {
+      "id": "ISIC_0000403",
+      "dice": 0.909,
+      "iou": 0.8331,
+      "precision": 0.8331,
+      "recall": 1.0,
+      "pixel_accuracy": 0.9743
+    },
+    {
+      "id": "ISIC_0000419",
+      "dice": 0.9571,
+      "iou": 0.9177,
+      "precision": 0.9188,
+      "recall": 0.9987,
+      "pixel_accuracy": 0.9707
+    },
+    {
+      "id": "ISIC_0000431",
+      "dice": 0.921,
+      "iou": 0.8536,
+      "precision": 0.9908,
+      "recall": 0.8604,
+      "pixel_accuracy": 0.9836
+    },
+    {
+      "id": "ISIC_0000442",
+      "dice": 0.7926,
+      "iou": 0.6565,
+      "precision": 1.0,
+      "recall": 0.6565,
+      "pixel_accuracy": 0.9321
+    },
+    {
+      "id": "ISIC_0000445",
+      "dice": 0.8663,
+      "iou": 0.7641,
+      "precision": 1.0,
+      "recall": 0.7641,
+      "pixel_accuracy": 0.9703
+    },
+    {
+      "id": "ISIC_0000453",
+      "dice": 0.9564,
+      "iou": 0.9165,
+      "precision": 0.9366,
+      "recall": 0.9771,
+      "pixel_accuracy": 0.9797
+    },
+    {
+      "id": "ISIC_0000471",
+      "dice": 0.9321,
+      "iou": 0.8729,
+      "precision": 0.8736,
+      "recall": 0.999,
+      "pixel_accuracy": 0.9791
+    },
+    {
+      "id": "ISIC_0000474",
+      "dice": 0.9523,
+      "iou": 0.909,
+      "precision": 0.9181,
+      "recall": 0.9892,
+      "pixel_accuracy": 0.9525
+    },
+    {
+      "id": "ISIC_0000483",
+      "dice": 0.9618,
+      "iou": 0.9265,
+      "precision": 0.9273,
+      "recall": 0.999,
+      "pixel_accuracy": 0.9754
+    },
+    {
+      "id": "ISIC_0000507",
+      "dice": 0.9604,
+      "iou": 0.9238,
+      "precision": 0.9239,
+      "recall": 0.9999,
+      "pixel_accuracy": 0.9792
+    },
+    {
+      "id": "ISIC_0000514",
+      "dice": 0.9503,
+      "iou": 0.9052,
+      "precision": 0.9058,
+      "recall": 0.9993,
+      "pixel_accuracy": 0.9867
+    },
+    {
+      "id": "ISIC_0000523",
+      "dice": 0.9312,
+      "iou": 0.8712,
+      "precision": 0.877,
+      "recall": 0.9925,
+      "pixel_accuracy": 0.9688
+    },
+    {
+      "id": "ISIC_0000538",
+      "dice": 0.9803,
+      "iou": 0.9613,
+      "precision": 0.9742,
+      "recall": 0.9864,
+      "pixel_accuracy": 0.9933
+    },
+    {
+      "id": "ISIC_0000544",
+      "dice": 0.9197,
+      "iou": 0.8514,
+      "precision": 0.8514,
+      "recall": 1.0,
+      "pixel_accuracy": 0.9564
+    },
+    {
+      "id": "ISIC_0000900",
+      "dice": 0.9247,
+      "iou": 0.86,
+      "precision": 0.9994,
+      "recall": 0.8605,
+      "pixel_accuracy": 0.9904
+    },
+    {
+      "id": "ISIC_0001148",
+      "dice": 0.9302,
+      "iou": 0.8695,
+      "precision": 0.8699,
+      "recall": 0.9996,
+      "pixel_accuracy": 0.9571
+    },
+    {
+      "id": "ISIC_0001184",
+      "dice": 0.9284,
+      "iou": 0.8664,
+      "precision": 0.9982,
+      "recall": 0.8678,
+      "pixel_accuracy": 0.9935
+    },
+    {
+      "id": "ISIC_0001191",
+      "dice": 0.7098,
+      "iou": 0.5502,
+      "precision": 0.5529,
+      "recall": 0.9911,
+      "pixel_accuracy": 0.9791
+    },
+    {
+      "id": "ISIC_0001275",
+      "dice": 0.8311,
+      "iou": 0.711,
+      "precision": 0.723,
+      "recall": 0.9771,
+      "pixel_accuracy": 0.9778
+    },
+    {
+      "id": "ISIC_0001286",
+      "dice": 0.8783,
+      "iou": 0.783,
+      "precision": 0.7862,
+      "recall": 0.9949,
+      "pixel_accuracy": 0.9839
+    },
+    {
+      "id": "ISIC_0001449",
+      "dice": 0.9064,
+      "iou": 0.8288,
+      "precision": 0.8362,
+      "recall": 0.9895,
+      "pixel_accuracy": 0.9894
+    },
+    {
+      "id": "ISIC_0002206",
+      "dice": 0.8944,
+      "iou": 0.809,
+      "precision": 0.8097,
+      "recall": 0.9988,
+      "pixel_accuracy": 0.9882
+    },
+    {
+      "id": "ISIC_0002251",
+      "dice": 0.8955,
+      "iou": 0.8108,
+      "precision": 0.8187,
+      "recall": 0.9881,
+      "pixel_accuracy": 0.9747
+    },
+    {
+      "id": "ISIC_0002287",
+      "dice": 0.8485,
+      "iou": 0.7369,
+      "precision": 1.0,
+      "recall": 0.7369,
+      "pixel_accuracy": 0.9699
+    },
+    {
+      "id": "ISIC_0002439",
+      "dice": 0.8291,
+      "iou": 0.7081,
+      "precision": 0.7081,
+      "recall": 1.0,
+      "pixel_accuracy": 0.9637
+    },
+    {
+      "id": "ISIC_0002453",
+      "dice": 0.9462,
+      "iou": 0.8979,
+      "precision": 0.908,
+      "recall": 0.9877,
+      "pixel_accuracy": 0.9931
+    },
+    {
+      "id": "ISIC_0002616",
+      "dice": 0.8909,
+      "iou": 0.8033,
+      "precision": 0.9888,
+      "recall": 0.8107,
+      "pixel_accuracy": 0.9936
+    },
+    {
+      "id": "ISIC_0002806",
+      "dice": 0.9458,
+      "iou": 0.8972,
+      "precision": 0.9007,
+      "recall": 0.9958,
+      "pixel_accuracy": 0.9855
+    },
+    {
+      "id": "ISIC_0003346",
+      "dice": 0.8445,
+      "iou": 0.7309,
+      "precision": 0.7309,
+      "recall": 1.0,
+      "pixel_accuracy": 0.9894
+    },
+    {
+      "id": "ISIC_0006350",
+      "dice": 0.9592,
+      "iou": 0.9217,
+      "precision": 0.9485,
+      "recall": 0.9703,
+      "pixel_accuracy": 0.9902
+    },
+    {
+      "id": "ISIC_0006940",
+      "dice": 0.7818,
+      "iou": 0.6417,
+      "precision": 0.6417,
+      "recall": 1.0,
+      "pixel_accuracy": 0.9654
+    },
+    {
+      "id": "ISIC_0008236",
+      "dice": 0.9584,
+      "iou": 0.9201,
+      "precision": 0.9403,
+      "recall": 0.9773,
+      "pixel_accuracy": 0.9944
+    },
+    {
+      "id": "ISIC_0008256",
+      "dice": 0.9238,
+      "iou": 0.8585,
+      "precision": 0.8632,
+      "recall": 0.9937,
+      "pixel_accuracy": 0.9929
+    },
+    {
+      "id": "ISIC_0008552",
+      "dice": 0.8906,
+      "iou": 0.8027,
+      "precision": 0.8027,
+      "recall": 1.0,
+      "pixel_accuracy": 0.9903
+    },
+    {
+      "id": "ISIC_0008879",
+      "dice": 0.9603,
+      "iou": 0.9237,
+      "precision": 0.9447,
+      "recall": 0.9765,
+      "pixel_accuracy": 0.9975
+    },
+    {
+      "id": "ISIC_0009297",
+      "dice": 0.901,
+      "iou": 0.8199,
+      "precision": 0.9538,
+      "recall": 0.8538,
+      "pixel_accuracy": 0.9903
+    },
+    {
+      "id": "ISIC_0009888",
+      "dice": 0.9389,
+      "iou": 0.8849,
+      "precision": 0.9619,
+      "recall": 0.9171,
+      "pixel_accuracy": 0.9875
+    },
+    {
+      "id": "ISIC_0009925",
+      "dice": 0.8305,
+      "iou": 0.7101,
+      "precision": 1.0,
+      "recall": 0.7101,
+      "pixel_accuracy": 0.9088
+    },
+    {
+      "id": "ISIC_0009950",
+      "dice": 0.8504,
+      "iou": 0.7397,
+      "precision": 1.0,
+      "recall": 0.7397,
+      "pixel_accuracy": 0.9339
+    },
+    {
+      "id": "ISIC_0009961",
+      "dice": 0.9609,
+      "iou": 0.9248,
+      "precision": 0.9903,
+      "recall": 0.9332,
+      "pixel_accuracy": 0.9711
+    },
+    {
+      "id": "ISIC_0009969",
+      "dice": 0.9725,
+      "iou": 0.9465,
+      "precision": 0.9794,
+      "recall": 0.9656,
+      "pixel_accuracy": 0.9839
+    },
+    {
+      "id": "ISIC_0009991",
+      "dice": 0.9814,
+      "iou": 0.9634,
+      "precision": 0.989,
+      "recall": 0.9738,
+      "pixel_accuracy": 0.9903
+    },
+    {
+      "id": "ISIC_0010017",
+      "dice": 0.9036,
+      "iou": 0.8241,
+      "precision": 0.9994,
+      "recall": 0.8246,
+      "pixel_accuracy": 0.926
+    },
+    {
+      "id": "ISIC_0010022",
+      "dice": 0.8727,
+      "iou": 0.7742,
+      "precision": 0.9991,
+      "recall": 0.7747,
+      "pixel_accuracy": 0.877
+    },
+    {
+      "id": "ISIC_0010056",
+      "dice": 0.802,
+      "iou": 0.6695,
+      "precision": 1.0,
+      "recall": 0.6695,
+      "pixel_accuracy": 0.6832
+    },
+    {
+      "id": "ISIC_0010078",
+      "dice": 0.9146,
+      "iou": 0.8426,
+      "precision": 0.9909,
+      "recall": 0.8492,
+      "pixel_accuracy": 0.9259
+    },
+    {
+      "id": "ISIC_0010079",
+      "dice": 0.8359,
+      "iou": 0.7181,
+      "precision": 1.0,
+      "recall": 0.7181,
+      "pixel_accuracy": 0.8679
+    },
+    {
+      "id": "ISIC_0010184",
+      "dice": 0.875,
+      "iou": 0.7778,
+      "precision": 0.8622,
+      "recall": 0.8883,
+      "pixel_accuracy": 0.977
+    },
+    {
+      "id": "ISIC_0010212",
+      "dice": 0.9363,
+      "iou": 0.8802,
+      "precision": 0.8802,
+      "recall": 1.0,
+      "pixel_accuracy": 0.9551
+    },
+    {
+      "id": "ISIC_0010218",
+      "dice": 0.9367,
+      "iou": 0.881,
+      "precision": 0.9824,
+      "recall": 0.8952,
+      "pixel_accuracy": 0.9725
+    },
+    {
+      "id": "ISIC_0010220",
+      "dice": 0.9519,
+      "iou": 0.9083,
+      "precision": 0.9784,
+      "recall": 0.9269,
+      "pixel_accuracy": 0.9932
+    },
+    {
+      "id": "ISIC_0010226",
+      "dice": 0.8852,
+      "iou": 0.794,
+      "precision": 0.9533,
+      "recall": 0.8262,
+      "pixel_accuracy": 0.9678
+    },
+    {
+      "id": "ISIC_0010232",
+      "dice": 0.9228,
+      "iou": 0.8567,
+      "precision": 0.9878,
+      "recall": 0.8659,
+      "pixel_accuracy": 0.8956
+    },
+    {
+      "id": "ISIC_0010264",
+      "dice": 0.9368,
+      "iou": 0.8811,
+      "precision": 0.9281,
+      "recall": 0.9457,
+      "pixel_accuracy": 0.929
+    },
+    {
+      "id": "ISIC_0010266",
+      "dice": 0.8712,
+      "iou": 0.7718,
+      "precision": 0.804,
+      "recall": 0.9507,
+      "pixel_accuracy": 0.9784
+    },
+    {
+      "id": "ISIC_0010318",
+      "dice": 0.9679,
+      "iou": 0.9377,
+      "precision": 0.9595,
+      "recall": 0.9763,
+      "pixel_accuracy": 0.9919
+    },
+    {
+      "id": "ISIC_0010335",
+      "dice": 0.8745,
+      "iou": 0.777,
+      "precision": 1.0,
+      "recall": 0.777,
+      "pixel_accuracy": 0.8504
+    },
+    {
+      "id": "ISIC_0010365",
+      "dice": 0.9677,
+      "iou": 0.9375,
+      "precision": 0.9521,
+      "recall": 0.9839,
+      "pixel_accuracy": 0.9899
+    },
+    {
+      "id": "ISIC_0010370",
+      "dice": 0.7498,
+      "iou": 0.5998,
+      "precision": 0.6939,
+      "recall": 0.8155,
+      "pixel_accuracy": 0.8186
+    },
+    {
+      "id": "ISIC_0010435",
+      "dice": 0.8957,
+      "iou": 0.8111,
+      "precision": 0.8189,
+      "recall": 0.9883,
+      "pixel_accuracy": 0.981
+    },
+    {
+      "id": "ISIC_0010436",
+      "dice": 0.9502,
+      "iou": 0.9052,
+      "precision": 0.9911,
+      "recall": 0.9126,
+      "pixel_accuracy": 0.9945
+    },
+    {
+      "id": "ISIC_0010439",
+      "dice": 0.9486,
+      "iou": 0.9021,
+      "precision": 0.9366,
+      "recall": 0.9608,
+      "pixel_accuracy": 0.9981
+    },
+    {
+      "id": "ISIC_0010445",
+      "dice": 0.9096,
+      "iou": 0.8342,
+      "precision": 0.9884,
+      "recall": 0.8425,
+      "pixel_accuracy": 0.96
+    },
+    {
+      "id": "ISIC_0010466",
+      "dice": 0.9234,
+      "iou": 0.8577,
+      "precision": 0.8611,
+      "recall": 0.9955,
+      "pixel_accuracy": 0.9833
+    },
+    {
+      "id": "ISIC_0010557",
+      "dice": 0.9479,
+      "iou": 0.9009,
+      "precision": 0.926,
+      "recall": 0.9708,
+      "pixel_accuracy": 0.9873
+    },
+    {
+      "id": "ISIC_0010571",
+      "dice": 0.9853,
+      "iou": 0.971,
+      "precision": 0.9753,
+      "recall": 0.9955,
+      "pixel_accuracy": 0.9916
+    },
+    {
+      "id": "ISIC_0010573",
+      "dice": 0.9175,
+      "iou": 0.8476,
+      "precision": 1.0,
+      "recall": 0.8476,
+      "pixel_accuracy": 0.9419
+    },
+    {
+      "id": "ISIC_0010605",
+      "dice": 0.279,
+      "iou": 0.1621,
+      "precision": 1.0,
+      "recall": 0.1621,
+      "pixel_accuracy": 0.3589
+    },
+    {
+      "id": "ISIC_0010849",
+      "dice": 0.8299,
+      "iou": 0.7093,
+      "precision": 0.9767,
+      "recall": 0.7215,
+      "pixel_accuracy": 0.9006
+    },
+    {
+      "id": "ISIC_0010851",
+      "dice": 0.899,
+      "iou": 0.8166,
+      "precision": 0.9991,
+      "recall": 0.8172,
+      "pixel_accuracy": 0.9713
+    },
+    {
+      "id": "ISIC_0010864",
+      "dice": 0.946,
+      "iou": 0.8975,
+      "precision": 0.8979,
+      "recall": 0.9994,
+      "pixel_accuracy": 0.9817
+    },
+    {
+      "id": "ISIC_0011084",
+      "dice": 0.8598,
+      "iou": 0.7541,
+      "precision": 0.8588,
+      "recall": 0.8608,
+      "pixel_accuracy": 0.9225
+    },
+    {
+      "id": "ISIC_0011119",
+      "dice": 0.977,
+      "iou": 0.9551,
+      "precision": 0.9755,
+      "recall": 0.9786,
+      "pixel_accuracy": 0.9941
+    },
+    {
+      "id": "ISIC_0011123",
+      "dice": 0.9729,
+      "iou": 0.9472,
+      "precision": 0.9661,
+      "recall": 0.9798,
+      "pixel_accuracy": 0.9849
+    },
+    {
+      "id": "ISIC_0011131",
+      "dice": 0.9176,
+      "iou": 0.8477,
+      "precision": 0.9432,
+      "recall": 0.8934,
+      "pixel_accuracy": 0.9647
+    },
+    {
+      "id": "ISIC_0011158",
+      "dice": 0.7499,
+      "iou": 0.5999,
+      "precision": 0.9982,
+      "recall": 0.6005,
+      "pixel_accuracy": 0.74
+    },
+    {
+      "id": "ISIC_0011159",
+      "dice": 0.762,
+      "iou": 0.6155,
+      "precision": 0.9415,
+      "recall": 0.64,
+      "pixel_accuracy": 0.7579
+    },
+    {
+      "id": "ISIC_0011173",
+      "dice": 0.871,
+      "iou": 0.7715,
+      "precision": 0.7715,
+      "recall": 1.0,
+      "pixel_accuracy": 0.9904
+    },
+    {
+      "id": "ISIC_0011217",
+      "dice": 0.9305,
+      "iou": 0.8701,
+      "precision": 0.999,
+      "recall": 0.8709,
+      "pixel_accuracy": 0.9899
+    },
+    {
+      "id": "ISIC_0011350",
+      "dice": 0.9187,
+      "iou": 0.8496,
+      "precision": 0.998,
+      "recall": 0.8511,
+      "pixel_accuracy": 0.8677
+    },
+    {
+      "id": "ISIC_0011356",
+      "dice": 0.6654,
+      "iou": 0.4986,
+      "precision": 1.0,
+      "recall": 0.4986,
+      "pixel_accuracy": 0.5063
+    },
+    {
+      "id": "ISIC_0011358",
+      "dice": 0.9196,
+      "iou": 0.8511,
+      "precision": 0.8729,
+      "recall": 0.9715,
+      "pixel_accuracy": 0.9584
+    },
+    {
+      "id": "ISIC_0011373",
+      "dice": 0.9062,
+      "iou": 0.8285,
+      "precision": 0.9993,
+      "recall": 0.8289,
+      "pixel_accuracy": 0.8693
+    },
+    {
+      "id": "ISIC_0011382",
+      "dice": 0.9747,
+      "iou": 0.9506,
+      "precision": 0.9647,
+      "recall": 0.9849,
+      "pixel_accuracy": 0.9844
+    },
+    {
+      "id": "ISIC_0011393",
+      "dice": 0.2871,
+      "iou": 0.1676,
+      "precision": 0.1676,
+      "recall": 1.0,
+      "pixel_accuracy": 0.8007
+    }
+  ],
+  "note": "Metrics are computed at original image resolution on images never used for training or model selection."
+}

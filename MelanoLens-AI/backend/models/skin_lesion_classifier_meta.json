@@ -1,0 +1,33 @@
+{
+  "model_name": "MobileNetV2 (transfer learning)",
+  "task": "classification",
+  "trained_at": "2026-11-08T20:47:24",
+  "class_names": [
+    "benign",
+    "malignant"
+  ],
+  "label_column": "column_1",
+  "label_coding": "text",
+  "class_counts": {
+    "benign": 727,
+    "malignant": 173
+  },
+  "img_size": 224,
+  "alpha": 1.0,
+  "weights": "imagenet",
+  "batch_size": 32,
+  "seed": 42,
+  "input_scaling": "raw RGB 0-255; MobileNetV2 scaling is a layer inside the model",
+  "class_weights": {
+    "benign": 0.6189,
+    "malignant": 2.6033
+  },
+  "augmentation": "flips, rot90, brightness/contrast (train only)",
+  "split_sizes": {
+    "train": 630,
+    "val": 135,
+    "test": 135
+  },
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2"
+}

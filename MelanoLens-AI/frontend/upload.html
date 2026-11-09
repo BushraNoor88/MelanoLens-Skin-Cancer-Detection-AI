@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101828">
+  <title>MelanoLens AI - Upload</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="upload.html">
+  <main id="main">
+    <header class="page-head"><div class="container">
+      <span class="eyebrow">Step 1 of 4</span>
+      <h1>Upload Image</h1>
+      <p>Upload a dermoscopic skin lesion image (JPG, JPEG or PNG). It is processed on this computer only. You may also add a reference segmentation mask so the Evaluation page can compute metrics.</p>
+    </div></header>
+    <div class="page-body"><div class="container">
+      <div class="steps-bar" aria-hidden="true"><span class="on"><b>1</b>Upload</span><span><b>2</b>Workspace</span><span><b>3</b>Analysis</span><span><b>4</b>Evaluation</span></div>
+      <div class="alert info"><span><strong>Educational tool.</strong> Not a medical diagnostic system.</span></div>
+      <div class="grid cols-2" style="align-items:start;margin-top:1rem">
+        <div class="reveal">
+          <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Choose an image or drop it here">
+            <div class="dz-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4m0 0L7 9m5-5 5 5M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg></div>
+            <strong>Drag &amp; drop an image here</strong><p class="muted">or click to choose a file</p>
+            <div class="dz-types" aria-hidden="true"><span>JPG</span><span>JPEG</span><span>PNG</span></div>
+            <input type="file" id="file-input" accept=".jpg,.jpeg,.png,image/jpeg,image/png" hidden>
+          </div>
+          <div class="card" style="margin-top:1rem">
+            <div class="field" style="margin-top:0">
+              <label for="mask-input">Reference mask (optional)</label>
+              <input type="file" id="mask-input" accept=".png,.jpg,.jpeg,image/png,image/jpeg">
+              <p class="muted" style="margin:.5rem 0 0">White = lesion, black = background. It should have the same aspect ratio as the image.</p>
+            </div>
+          </div>
+          <div id="messages" aria-live="polite"></div>
+          <div class="btn-row" style="margin-top:1rem">
+            <button class="btn primary large" id="process-btn" type="button" disabled>Process Image</button>
+            <button class="btn ghost" id="clear-btn" type="button" disabled>Clear</button>
+          </div>
+          <div class="status" id="status" role="status"></div>
+        </div>
+        <div class="reveal" style="--d:120ms">
+          <div class="card">
+            <h3>Preview</h3>
+            <div class="preview-box" id="preview"><span class="muted">No image selected</span></div>
+            <dl class="info-list" id="info"></dl>
+          </div>
+          <div class="card" style="margin-top:1rem">
+            <h3>Tips for good results</h3>
+            <ul class="tips">
+              <li>Use a sharply focused, evenly lit dermoscopic image.</li>
+              <li>Images with large hairs, rulers or markers may need the hair-reduction option.</li>
+              <li>A reference mask enables Dice, IoU and F1 metrics on the Evaluation page.</li>
+              <li>Files are validated here and again on the server; larger images are resized for processing.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </main>
+  <script src="js/app.js"></script><script src="js/ui.js"></script><script src="js/upload.js"></script>
+</body>
+</html>

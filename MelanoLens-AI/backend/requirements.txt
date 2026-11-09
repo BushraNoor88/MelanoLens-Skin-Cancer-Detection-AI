@@ -1,0 +1,12 @@
+Flask>=3.0
+opencv-python>=4.9
+numpy>=1.26
+Pillow>=10.0
+matplotlib>=3.8
+scikit-image>=0.22
+scipy>=1.11
+pytest>=8.0
+python-dotenv>=1.0
+# CNN modules (U-Net segmentation + MobileNetV2 classification). Needs Python 3.9-3.12.
+# The classical pipeline still works without it; CNN endpoints then report "tensorflow_missing".
+tensorflow>=2.16
